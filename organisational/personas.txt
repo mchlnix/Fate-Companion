@@ -32,6 +32,6 @@
 > 3
 - Name: Karl
 - Alter: 21
-- Ziel: 
-- Persönlichkeit
-- Fähigkeiten
+- Ziel: Einen Charakter erstellen und Unterstützung bei seiner ersten Kampagne haben.
+- Persönlichkeit: Aufgeschlossen, neugierig
+- Fähigkeiten: lernwillig
