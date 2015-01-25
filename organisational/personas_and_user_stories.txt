@@ -1,0 +1,40 @@
+﻿Personas
+
+
+
+> 1
+- Name: Josh
+- Alter: 26 Jahre
+- Ziel: will absolute Übersicht über alle Statuswerte seines Charakters haben
+- Persönlichkeit: entspannt, berechnend, sehr intelligent, strategisch, ehrlich
+- Fähigkeiten: sehr erfahren im Umgang mit Smartphones und anderen technischen Geräten, kaum Erfahrungen mit Tabletop-RPGs (speziell nicht Fate)
+
+
+
+
+
+
+
+
+> 2
+- Name: Karin
+- Alter: 39 Jahre
+- Ziel: gute Übersicht über alle verschiedenen Charaktere, die sie über mehrere Kampagnen hat 
+- Persönlichkeit: zurückhaltend
+- Fähigkeiten: sehr erfahren im Umgang mit vielen verschiedenen Fate Systemen, eher unerfahren mit Smartphones
+
+
+
+
+
+
+
+> 3
+- Name: Karl
+- Alter: 21
+- Ziel: Einen Charakter erstellen und Unterstützung bei seiner ersten Kampagne haben.
+- Persönlichkeit: Aufgeschlossen, neugierig
+- Fähigkeiten: lernwillig
+
+User Story #1: Samstag Abend, bei der ersten Session der ersten Kampagne. Karl hat keine Ahnung, wie genau er seinen Charakter erstellen soll. Er öffnet die App. Da er noch keinen Character erstellt hat, wird nur ihm ein "Charakter erstellen" Knopf angezeigt. Er drückt ihn. Es wird eine Auswahl von 3 verschiedenen Character Sheets dargestellt. Fate Core, Fate Accelerated oder Atomic Robo. Karl erkundigt sich bei seinem Freund, welche Version sie spielen. Danach wählt er Fate Accelerated aus und bekommt eine Vertkale Liste von Attributen aus, die er ausfüllen soll. Nach dem er den Namen und die Beschreibung seines Charakters eingegeben hat, kommt er zu einem Punkt "Refresh", den er nicht versteht. Er ignoriert die Hilfefunktion, in der alle Attribute durch einen kleinen Absatz erklärt werden und fragt stattdessen seinen Freund. Mit dessen Hilfe füllt Karl alle Felder aus. Als er ausversehen bei einem Feld eine zu hohe Zahl eingegeben hatte, benachrichtigte die App ihn darüber und er berichtigte sich selbst.
+Als er mit seinem Charakter zufrieden war, drückte er die Speichern Schaltfläche und gelangte wieder in den Charakterauswahlbildschirm. Dieses Mal befand sich sein Charakter über dem "Hinzufügen" Knopf. Er wählt ihn aus und kommt in den "Kampagnenauswahlbildschirm". Da sein Charakter noch keiner Kampagne zugeordnet ist, sieht er nur den "Kampagne hinzufügen" Knopf. Er drückt ihn etc...

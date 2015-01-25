@@ -1,0 +1,16 @@
+- 3 verschiedene Charactersheetversionen. Fate Accelerated, Fate Core und Atomic Robo.
+- Diese werden als Liste mit den jeweils notwendigen Eigenschaften dargestellt.
+- In einer Tablet Version sollte eventuell der Aufbau der originalen Sheets beibehalten werden. (Zukunft)
+- Input wird validiert, aber keine weiteren Funktionen der App hängen von den eingegebenen Werten der Eigenschaften ab.
+- Man kann Charaktere erstellen und für verschiedene Kampagnen benutzen.
+- Den Charakteren kann für jedes System einen eigenen Ausgangs-Character-Sheet zugeordnet werden
+- In zukünftigen releasen, soll eine Verbindung zu einem Desktop PC erfolgen können, welcher eine zusammengefasste, vom GM gesteuerte, Ansicht der aktuellen Kampagne anzeigt. So werden alle wichtigen Informationen aller Charaktere an einem Ort zusammengefasst
+
+
+
+Kampagne:
+- Name, Beschreibung (optional), Datum (letztes Mal gespielt), System, Charactersheets der beteiligten Charaktere.
+
+
+Charakter:
+- Name, Beschreibung, Ausgangs-Character Sheet(für verschiedene Systeme), zugeordnete Kampagnen
