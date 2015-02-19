@@ -9,10 +9,9 @@
 - Persönlichkeit: entspannt, berechnend, sehr intelligent, strategisch, ehrlich
 - Fähigkeiten: sehr erfahren im Umgang mit Smartphones und anderen technischen Geräten, kaum Erfahrungen mit Tabletop-RPGs (speziell nicht Fate)
 
-
-
-
-
+-- User Stories
+- Als technisch versierter Nutzer möchte ich, dass die App sich so steuern lässt wie mein Smartphone üblicherweise.
+- Als Spieler möchte ich einen Ton haben, der anzeigt, was die anderen gewürfelt haben, damit sie nicht betrügen können, ich sie aber auch nicht kontrollieren muss.
 
 
 
@@ -23,9 +22,11 @@
 - Persönlichkeit: zurückhaltend
 - Fähigkeiten: sehr erfahren im Umgang mit vielen verschiedenen Fate Systemen, eher unerfahren mit Smartphones
 
-
-
-
+-- User Stories
+- Als Besitzerin vieler Charaktere möchte ich überschneidende Namen schnell und einfach unterscheiden können.
+- Als übergewichtige/ungeschickte/ungeübte Nutzerin möchte ich nicht mit kleinen Klickflächen/Bedienflächen interagieren müssen.
+- Als Besitzerin eines uralten Smartphones möchte ich, dass auch meine App flüssig läuft.
+- Als erfahrene Tabletop-RPGerin möchte ich, dass die Begriffe denen aus den ursprünglichen Systemen entsprechen.
 
 
 
@@ -36,5 +37,28 @@
 - Persönlichkeit: Aufgeschlossen, neugierig
 - Fähigkeiten: lernwillig
 
-User Story #1: Samstag Abend, bei der ersten Session der ersten Kampagne. Karl hat keine Ahnung, wie genau er seinen Charakter erstellen soll. Er öffnet die App. Da er noch keinen Character erstellt hat, wird nur ihm ein "Charakter erstellen" Knopf angezeigt. Er drückt ihn. Es wird eine Auswahl von 3 verschiedenen Character Sheets dargestellt. Fate Core, Fate Accelerated oder Atomic Robo. Karl erkundigt sich bei seinem Freund, welche Version sie spielen. Danach wählt er Fate Accelerated aus und bekommt eine Vertkale Liste von Attributen aus, die er ausfüllen soll. Nach dem er den Namen und die Beschreibung seines Charakters eingegeben hat, kommt er zu einem Punkt "Refresh", den er nicht versteht. Er ignoriert die Hilfefunktion, in der alle Attribute durch einen kleinen Absatz erklärt werden und fragt stattdessen seinen Freund. Mit dessen Hilfe füllt Karl alle Felder aus. Als er ausversehen bei einem Feld eine zu hohe Zahl eingegeben hatte, benachrichtigte die App ihn darüber und er berichtigte sich selbst.
+-- User Stories
+- Als Anfänger möchte ich bei der Erstellung eines CH unterstützt werden.
+- Als Spieler möchte ich schnell in meine letzt gespielte Kampagne zurückkehren können.
+- Als Anfänger möchte ich mitspielen können, auch wenn meine Würfel noch nicht geliefert wurden.
+- Als Anfänger möchte ich während des Spiels auch mal auf meine Attribute und Beschreibung spicken können.
+- Als Anfänger, der endlich seine Würfel hat, möchte ich nicht von der App zum Würfeln gezwungen werden.
+- Als Anfänger, der nur mal schnell reinschnuppern will, möchte ich so wenig wie mglich konfigurieren müssen, bevor ich spielen kann.
+
+
+
+
+
+
+>> Story Boards
+
+- #1
+Samstag Abend, bei der ersten Session der ersten Kampagne. Karl hat keine Ahnung, wie genau er seinen Charakter erstellen soll. Er öffnet die App. Da er noch keinen Character erstellt hat, wird nur ihm ein "Charakter erstellen" Knopf angezeigt. Er drückt ihn. Es wird eine Auswahl von 3 verschiedenen Character Sheets dargestellt. Fate Core, Fate Accelerated oder Atomic Robo. Karl erkundigt sich bei seinem Freund, welche Version sie spielen. Danach wählt er Fate Accelerated aus und bekommt eine Vertkale Liste von Attributen aus, die er ausfüllen soll. Nach dem er den Namen und die Beschreibung seines Charakters eingegeben hat, kommt er zu einem Punkt "Refresh", den er nicht versteht. Er ignoriert die Hilfefunktion, in der alle Attribute durch einen kleinen Absatz erklärt werden und fragt stattdessen seinen Freund. Mit dessen Hilfe füllt Karl alle Felder aus. Als er ausversehen bei einem Feld eine zu hohe Zahl eingegeben hatte, benachrichtigte die App ihn darüber und er berichtigte sich selbst.
 Als er mit seinem Charakter zufrieden war, drückte er die Speichern Schaltfläche und gelangte wieder in den Charakterauswahlbildschirm. Dieses Mal befand sich sein Charakter über dem "Hinzufügen" Knopf. Er wählt ihn aus und kommt in den "Kampagnenauswahlbildschirm". Da sein Charakter noch keiner Kampagne zugeordnet ist, sieht er nur den "Kampagne hinzufügen" Knopf. Er drückt ihn etc...
+
+
+- #2
+Karin startet die Anwendung auf ihrem Smartphone, wählt einen Charakter aus und wird vor eine Auswahl mehrerer Kampagnen gestellt, in denen dieser Charakter vorkommt. Sie wählt mit Absicht eine ältere Kampagne. Sie wird zur Character Sheet Ansicht gebracht, wo sie etwas nachschaut.
+Das getan wählt sie die Option einen anderen Charakter auszuwählen (geht im Menü zurück), wird wieder vor eine Auswahl von Kampagnen gestellt und wählt diesmal die aktuelle Kampagne.
+(Die anderen Spieler sind genervt von ihrer ständigen Neugier und rufen "Fuck you, Karin!".)
+Nachdem sie den entsprechenden Wert eines Skills eingesehen hat wechselt sie zur Würfelansicht, drückt auf den Button zum Würfeln und sagt ihrer Gruppe das Ergebnis.
