@@ -1,13 +1,14 @@
 -- Aufbau
 
 
-1) Zielbestimmung
+## 1. Zielbestimmung
 
 Bisher werden die Charaktere der Spieler durch einige Dokumente verwaltet. Dadurch ist es für jede Session aufwändig alle benötigten Blätter und Würfel zu organisieren. Außerdem empfinden die Spieler es als lästig ständig Änderungen an ihren Character Sheets vorzunehmen und diese damit immer weiter zu verschandeln.
 Ziel soll es also sein den Spielern diesen organisatorischen Aufwand teilweise abzunehmen und ihre Möglichkeiten zu unterstützen. 
 Folgende Anforderungen soll das Programm dabei erfüllen:
 
 - Die Applikation muss es erlauben vier Würfel zu würfeln. Diese sind Fudge Dice (6 seitige Würfel mit jeweils 2 Seiten auf denen ein Plus, Minus und Nichts abgebildet ist).
+- In der Würfelansicht müssen zudem mindestens die Approaches/Skills/Modes übersichtlich angezeigt werden.
 - Das System soll aus 2 Ansichten bestehen: eine Ansicht, in der gewürfelt wird, und eine Ansicht, in der das aktive Character Sheet betrachtet werden kann.
 - Das System muss die offiziellen Character Sheets von Fate Core, Fate Accelerated Edition und Atomic Robo übersichtlich darstellen können.
 - Aus der Character-Sheet-Ansicht heraus muss das Character Sheet bearbeitet werden können. Die Editierungen müssen den Regeln des entsprechenden Systems zu jedem Zeitpunkt entsprechen.
@@ -17,14 +18,13 @@ Das Programm soll bis Ende des Jahres 2015 fertiggestellt werden. Support soll f
 
 
 
-2) Produkteinsatz
+## 2. Produkteinsatz
 - Das Produkt soll auf Android Smartphones (Mindestversion: 4.0.3) ausgeführt werden.
 - Das Produkt soll von teilweise nicht sehr technisch versierten Nutzern eingesetzt werden.
 - Das Produkt soll in englischer Sprache verfasst werden.
 
 
-
-3) Produktfunktionen
+## 3. Produktfunktionen
 
 -- LF 0100 - Würfelansicht
 - LF 0110 - Würfeln: Würfeln von vier Fudge Dice/Fate Dice mit anschließender Anzeige der Einzelergebnisse der Würfel in Form von aussagekräftigen Symbolen und Anzeige des Gesamtergebnisses im Zahlenformat (-4 bis +4).
@@ -37,13 +37,10 @@ Das Programm soll bis Ende des Jahres 2015 fertiggestellt werden. Support soll f
 - LF 0250 - aktiven Charakter wechseln: Wechseln des aktiven Charakters zu einem Anderen in gegebenenfalls einer anderen Kampagne.
 
 
-
-4) Produktdaten
+## 4. Produktdaten
 
 -- LD 0100 - Würfel
 - 
-
-
 
 -- LD 0200 - Charakteransicht
 - LD 0210 - Name: Name des Charakters
@@ -54,20 +51,19 @@ Das Programm soll bis Ende des Jahres 2015 fertiggestellt werden. Support soll f
 - LD 0310 - Name: Titel der Kampagne
 - LD 0320 - Beschreibung: Setting der Kampagne (grober Anriss der Story, Umgebungsaspekte)
 - LD 0330 - Datum: Datum, an dem ein Charakter der Kampagne gespielt wurde
-- LD 0340 - System: FAE, Fate Core oder Atomic Robo
-- LD 03150 - beteiligte Charaktere: Liste beteiligter Charaktere mit Verweisen auf deren Character Sheets
+- LD 0340 - System: FATE, Fate Core oder Atomic Robo
+- LD 0350 - beteiligte Charaktere: Liste beteiligter Charaktere mit Verweisen auf deren Character Sheets
 
 
 
+## 5. Produktleistungen
 
-5) Produktleistungen
 - Wechsel zwischen den Ansichten für Würfeln und die Übersicht des Character Sheets muss in höchstens einer (1) Sekunde vonstatten gehen.
 - Würfelergebnis muss nach höchstens zwei (2) Sekunden angezeigt werden.
 - Energiespeicherbedarf der App sollte gering sein.
 
 
-
-6) Qualitätsanforderungen
+## 6. Qualitätsanforderungen
 
 -- sehr gut
 - Aussehen und Handhabung (Look and Feel)
