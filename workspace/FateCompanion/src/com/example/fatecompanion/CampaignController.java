@@ -62,6 +62,10 @@ public class CampaignController {
 	
 	public Boolean validateName( String name )
 	{
+		/*
+		 * TODO: more checks
+		 */
+		
 		return ! name.isEmpty();
 	}
 	
