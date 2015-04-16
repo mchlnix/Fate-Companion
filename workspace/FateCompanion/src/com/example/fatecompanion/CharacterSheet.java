@@ -4,6 +4,7 @@ public abstract class CharacterSheet {
 	
 	private String name;
 	private String description;
+	private RPGSystem system;
 	
 	public String getName()
 	{
@@ -23,5 +24,15 @@ public abstract class CharacterSheet {
 	public void setDescription( String description )
 	{
 		this.description = description;
+	}
+
+	public RPGSystem getSystem() 
+	{
+		return this.system;
+	}
+
+	public void setSystem(RPGSystem system) 
+	{
+		this.system = system;
 	}
 }
