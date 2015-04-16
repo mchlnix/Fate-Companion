@@ -100,7 +100,8 @@ public class CharacterController {
 	public void addCampaignToCharacter( Long campaignID, Long characterID )
 	{
 		// adds empty characterSheet, so that the character has the campaign
-		
+		// TODO: Error handling, when no character found.
+		// TODO: Change return type to boolean?
 		this.characterCache.get( characterID ).addCharacterSheet( null, campaignID );
 	}
 	
