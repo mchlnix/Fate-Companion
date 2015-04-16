@@ -1,7 +1,5 @@
 package com.example.fatecompanion;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
 
 public class DiceManager {
@@ -9,13 +7,18 @@ public class DiceManager {
 	private static int amountOfPossibilities = DiceResult.values().length;
 	private static Random random = new Random();
 	
-	public static List<DiceResult> getDiceRoll( int amount )
+	private DiceManager()
 	{
-		LinkedList<DiceResult> result = new LinkedList<DiceResult>();
+		
+	}
+	
+	public static DiceResult[] getDiceRoll( int amount )
+	{
+		DiceResult[] result = new DiceResult[amount];
 		
 		for ( int i = 0; i < amount; i++)
 		{
-			result.add( DiceManager.possibilities[ random.nextInt( DiceManager.amountOfPossibilities ) ] );
+			result[i] = DiceManager.possibilities[ random.nextInt( DiceManager.amountOfPossibilities ) ];
 		}
 		
 		return result;
