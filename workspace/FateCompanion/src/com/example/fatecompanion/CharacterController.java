@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CharacterController {
+	
+	private static CharacterController instance = null;
 
 	private HashMap<Long, Character> characterCache;
 	
-	public CharacterController()
+	private CharacterController()
 	{
 		// Get every characterID from the DB, then populate the cache
 		
@@ -32,6 +34,18 @@ public class CharacterController {
 				 */
 			}
 		}
+	}
+	
+	public static synchronized CharacterController getInstance()
+	{
+		// synchronized, because of wikipedia
+		
+		if (instance == null)
+		{
+			instance = new CharacterController();
+		}
+		
+		return instance;
 	}
 	
 	public ArrayList<Long> getAllCharacterIDs()

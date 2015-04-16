@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CampaignController {
+	
+	private static CampaignController instance = null;
+	
 	private HashMap<Long, Campaign> campaignCache;
 	
-	public CampaignController()
+	private CampaignController()
 	{
 		// Get every campaignID from the DB, then populate the cache
 		
@@ -31,6 +34,18 @@ public class CampaignController {
 				 */
 			}
 		}
+	}
+	
+	public static synchronized CampaignController getInstance()
+	{
+		// synchronized, because of wikipedia
+		
+		if ( instance == null )
+		{
+			instance = new CampaignController();
+		}
+		
+		return instance;
 	}
 	
 	public Campaign getCampaignByID( Long campaignID )
