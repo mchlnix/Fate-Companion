@@ -6,6 +6,8 @@ public abstract class CharacterSheet {
 	private String description;
 	private RPGSystem system;
 	
+	private CharacterSheetID characterSheetID;
+
 	public String getName()
 	{
 		return this.name;
