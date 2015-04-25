@@ -62,3 +62,29 @@ Karin startet die Anwendung auf ihrem Smartphone, wählt einen Charakter aus und
 Das getan wählt sie die Option einen anderen Charakter auszuwählen (geht im Menü zurück), wird wieder vor eine Auswahl von Kampagnen gestellt und wählt diesmal die aktuelle Kampagne.
 (Die anderen Spieler sind genervt von ihrer ständigen Neugier und rufen "Fuck you, Karin!".)
 Nachdem sie den entsprechenden Wert eines Skills eingesehen hat wechselt sie zur Würfelansicht, drückt auf den Button zum Würfeln und sagt ihrer Gruppe das Ergebnis.
+
+>> Walkthroughs
+
+Ich öffne die App, der CharacterListView geht auf. Der CharacterListViewController wird instanziiert und die Methode getAllCharacters() wird aufgerufen. Er holt sich die IDs aller Charaktere vom CharacterController mit Hilfe der getAllCharacterIDs() Methode. Da der CharacterController erst instanziiert werden muss, wird intern der private Construktor aufgerufen. Dieser holt sich aus der Datenbank  alle IDs der Tabelle "Characters". Danach legt er für jede ID einen Schlüssel in der CacheMap an und lädt aus den Modellen mit loadFromDB() die Charaktere in den Cache. Dann gibt er an den CharacterListViewController eine Liste mit allen CharakterIDs der Datenbank zurück.
+Der CharacterListiewController ruft nun für jede ID die Methode getCharacterByID() des CharacterControllers auf und gibt diese als Liste an den CharacterListViewController zurück.
+Der CharacterListView baut aus den Attributen der Charaktere eine Liste auf. Die nötigen Getter werden direkt vom View aufgerufen, ohne über den CharacterController zu gehen (oder?).
+Ich tappe auf den ersten Character in der Liste. Der CampaignListView wird aufgerufen und bekommt als Attribut die CharacterID des ausgewählten Charakters. 
+Bevor etwas angezeigt wird, holt sich der View alle Kampagnen des Characters über den CampaignListViewController mit der Methode getAllCampaigns(). Er ruft den CharacterController mit der Methode getCampaignIDsByCharacterID() auf.
+Dann holt sich der CampaignListViewController alle Kampagnen mit Hilfe der Methode getCampaignByID() und gibt sie als Liste an den CharacterListView zurück.
+Aus der Liste der Kampagnen baut der View eine Liste, sollte die Liste leer sein, so gibt er direkt an den CampaignCreateView weiter und übergibt die CharacterID als Argument mit.
+Ich tappe auf die erste Kampagne. Der CampaignView wird mir angezeigt. Der CampaignViewController wird mit der Methode getCampaign() aufgerufen. Der CampaignViewController ruft die Methode getCampaignByID des CampaignControllers auf. 
+Ich sehe eine Übersicht, mit Namen der Kampagne und einer Beschreibung.
+Da ist eine Schaltfläche, die mich den dazugehörigen CharacterSheet ansehen lässt.
+Ich klicke auf sie und die App wechselt zum CharacterSheetView. Der View ruft den CharacterSheetViewController auf mit getCharacterSheet(). Der CharacterSheetController lädt den CharacterSheet mit der Kombination aus der CharacterID und der CampaignID (wie?) und gibt ihn an den CharacterSheetViewController zurück. Der CharacterSheetView überprüft das system Attribut und ruft den entsprechenden CharacterSheetXxxView auf und übergibt die CharacterSheetID.
+Der CharacterSheetXxxView ruft den CharacterSheetXxxViewController auf, um mit der Methode getCharacterSheet() den spezifischen CharacterSheet zu laden. Der CharacterSheetXxxViewController ruft die getCharacterSheet() Methode des CharacterSheetXxxControllers auf.
+Nachdem er erfolgreich geladen wurde, werden vom CharacterSheetXxxView die nötigen Felder entsprechend den Werten des CharacterSheets ausgefüllt.
+Es gibt eine Schaltfläche, die zum Würfelbildschirm führt. Vielleicht auch nur eine Animation.
+
+
+
+
+
+
+
+
+
