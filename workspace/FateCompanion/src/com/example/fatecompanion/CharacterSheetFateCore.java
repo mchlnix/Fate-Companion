@@ -9,6 +9,8 @@ public class CharacterSheetFateCore extends CharacterSheet {
 	private Long campaignID;
 	private Long characterID;
 	
+	private RPGSystem system;
+	
 	private CharacterSheetID characterSheetID;
 	
 	private String name;
@@ -37,6 +39,8 @@ public class CharacterSheetFateCore extends CharacterSheet {
 	
 	public CharacterSheetFateCore()
 	{
+		this.system = RPGSystem.FateCore;
+		
 		this.name = "";
 		this.description = "";
 		this.refresh = 0;
