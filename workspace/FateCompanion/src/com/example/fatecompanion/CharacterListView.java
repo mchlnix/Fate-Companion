@@ -3,9 +3,12 @@ package com.example.fatecompanion;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,6 +23,19 @@ public class CharacterListView extends Activity {
 		
 		for ( Long ID : characterIDs )
 		{
+			CharacterListWidget temp = new CharacterListWidget( this, ID );
+			temp.setClickable( true );		
+			
+			OnClickListener click = new OnClickListener() {
+				
+				public void onClick( View v )
+				{
+					goToCampaign( ((CharacterListWidget) v).getCharacterID() );
+				}
+			};
+			
+			temp.setOnClickListener( click );
+			
 			( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) )
 				.addView( new CharacterListWidget( this, ID ) );
 		}
@@ -27,9 +43,23 @@ public class CharacterListView extends Activity {
 		TextView derp = new TextView(this);
 		derp.setText( "derp2" );
 		
+		CharacterListWidget temp = new CharacterListWidget( this, 0L );
+		
 		// Test 0L is debug ID
+		temp.setClickable( true );		
+		
+		OnClickListener click = new OnClickListener() {
+			
+			public void onClick( View v )
+			{
+				goToCampaign( ((CharacterListWidget) v).getCharacterID() );
+			}
+		};
+		
+		temp.setOnClickListener( click );
+		
 		( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) )
-		.addView( new CharacterListWidget(this, 0L) );
+		.addView( temp );
 	}
 
 	@Override
@@ -49,5 +79,13 @@ public class CharacterListView extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void goToCampaign( Long characterID )
+	{
+		Intent intent = new Intent( this, CampaignListView.class );
+		intent.putExtra( "characterID", characterID );
+		
+		this.startActivity( intent );
 	}
 }
