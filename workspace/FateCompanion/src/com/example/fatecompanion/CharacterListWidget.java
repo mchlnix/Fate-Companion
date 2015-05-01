@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 public class CharacterListWidget extends LinearLayout {
 	
+	private Long characterID;
+	
 	public CharacterListWidget(Context context, Long characterID)
 	{
 		this(context, null, characterID);
@@ -18,6 +20,8 @@ public class CharacterListWidget extends LinearLayout {
 	public CharacterListWidget(Context context, AttributeSet attrs, Long characterID) 
 	{
 		super(context, attrs);
+		
+		this.characterID = characterID;
 		
 		this.setOrientation( LinearLayout.HORIZONTAL );
 		
@@ -63,5 +67,10 @@ public class CharacterListWidget extends LinearLayout {
 		charInfo.addView( charLast );
 		
 		this.addView( charInfo );
+	}
+	
+	public Long getCharacterID()
+	{
+		return this.characterID;
 	}
 }
