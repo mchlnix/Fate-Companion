@@ -99,13 +99,13 @@ public class CharacterListView extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void goToCharacterCreate()
+	private void goToCharacterCreate()
 	{
 		Intent intent = new Intent( this, CharacterCreateView.class );
 		this.startActivity( intent );
 	}
 	
-	public void goToCampaign( Long characterID )
+	private void goToCampaign( Long characterID )
 	{
 		Intent intent = new Intent( this, CampaignListView.class );
 		intent.putExtra( "characterID", characterID );
