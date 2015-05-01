@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -40,8 +41,7 @@ public class CharacterListView extends Activity {
 				.addView( new CharacterListWidget( this, ID ) );
 		}
 		
-		TextView derp = new TextView(this);
-		derp.setText( "derp2" );
+		/* Test purposes. Delete when ready */
 		
 		CharacterListWidget temp = new CharacterListWidget( this, 0L );
 		
@@ -60,6 +60,24 @@ public class CharacterListView extends Activity {
 		
 		( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) )
 		.addView( temp );
+		
+		/* Add character create button */
+		
+		Button addChar = new Button( this );
+		addChar.setText( "Add Character" );
+		addChar.setClickable( true );
+		
+		OnClickListener click_button = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				goToCharacterCreate();
+			}
+		};
+		
+		addChar.setOnClickListener( click_button );
+		
+		((LinearLayout) this.findViewById( R.id.LinearLayout1 ) ).addView( addChar );
 	}
 
 	@Override
@@ -79,6 +97,12 @@ public class CharacterListView extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void goToCharacterCreate()
+	{
+		Intent intent = new Intent( this, CharacterCreateView.class );
+		this.startActivity( intent );
 	}
 	
 	public void goToCampaign( Long characterID )
