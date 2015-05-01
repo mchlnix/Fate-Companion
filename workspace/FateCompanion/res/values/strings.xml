@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="MuchFunny">Olla Miguel?</string>
     <string name="title_activity_character_list_view">Character List</string>
+    <string name="title_activity_campaign_list_view">CampaignListView</string>
 
 </resources>
