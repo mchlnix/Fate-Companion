@@ -20,15 +20,20 @@
         <activity
             android:name=".CharacterListView"
             android:label="@string/title_activity_character_list_view" >
-			<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.HOME" />
+
+                <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".CampaignListView"
             android:label="@string/title_activity_campaign_list_view" >
+        </activity>
+        <activity
+            android:name=".CharacterCreateView"
+            android:label="@string/title_activity_character_create_view" >
         </activity>
     </application>
 

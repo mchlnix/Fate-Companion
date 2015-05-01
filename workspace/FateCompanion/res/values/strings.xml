@@ -7,5 +7,6 @@
     <string name="MuchFunny">Olla Miguel?</string>
     <string name="title_activity_character_list_view">Character List</string>
     <string name="title_activity_campaign_list_view">CampaignListView</string>
+    <string name="title_activity_character_create_view">CharacterCreateView</string>
 
 </resources>
