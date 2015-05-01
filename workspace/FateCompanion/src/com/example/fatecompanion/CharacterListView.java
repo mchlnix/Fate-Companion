@@ -1,9 +1,13 @@
 package com.example.fatecompanion;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class CharacterListView extends Activity {
 
@@ -11,6 +15,21 @@ public class CharacterListView extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_character_list_view);
+		
+		ArrayList<Long> characterIDs = CharacterController.getInstance().getAllCharacterIDs();
+		
+		for ( Long ID : characterIDs )
+		{
+			( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) )
+				.addView( new CharacterListWidget( this, ID ) );
+		}
+		
+		TextView derp = new TextView(this);
+		derp.setText( "derp2" );
+		
+		// Test 0L is debug ID
+		( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) )
+		.addView( new CharacterListWidget(this, 0L) );
 	}
 
 	@Override
