@@ -2,7 +2,6 @@ package com.example.fatecompanion;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 
 
 public class Character {
