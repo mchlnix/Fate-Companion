@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 public class CampaignListWidget extends LinearLayout {
 	
+	private Long campaignID;
+	
 	public CampaignListWidget(Context context, Long campaignID)
 	{
 		this(context, null, campaignID);
@@ -18,6 +20,8 @@ public class CampaignListWidget extends LinearLayout {
 	public CampaignListWidget(Context context, AttributeSet attrs, Long campaignID) 
 	{
 		super(context, attrs);
+		
+		this.campaignID = campaignID;
 		
 		this.setOrientation( LinearLayout.HORIZONTAL );
 		
@@ -63,5 +67,10 @@ public class CampaignListWidget extends LinearLayout {
 		charInfo.addView( charLast );
 		
 		this.addView( charInfo );
+	}
+	
+	public Long getCampaignID()
+	{
+		return this.campaignID;
 	}
 }
