@@ -35,7 +35,7 @@ public class CampaignListView extends Activity {
 				
 				public void onClick( View v )
 				{
-					goToCharacterSheetList( characterID, ((CampaignListWidget) v).getCampaignID() );
+					goToCharacterSheet( characterID, ((CampaignListWidget) v).getCampaignID() );
 				}
 			};
 			
@@ -71,14 +71,21 @@ public class CampaignListView extends Activity {
         return true;
     }
 	
-	private void goToCharacterSheetList( Long characterID, Long campaignID )
+	private void goToCharacterSheet( Long characterID, Long campaignID )
 	{
-		// TODO Auto-generated method stub
+		Intent intent = new Intent( this, CharacterSheetView.class );
+		intent.putExtra( "characterID", characterID );
+		intent.putExtra( "campaignID", campaignID );
+		
+		this.startActivity( intent );
 	}
 
 	private void goToCampaignCreate( Long characterID )
 	{
-		// TODO Auto-generated method stub
+		Intent intent = new Intent( this, CampaignCreateView.class);
+		intent.putExtra( "characterID", characterID );
+		
+		this.startActivity( intent );
 		
 	}
     
