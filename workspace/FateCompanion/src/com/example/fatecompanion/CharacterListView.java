@@ -38,7 +38,7 @@ public class CharacterListView extends Activity {
 			temp.setOnClickListener( click );
 			
 			( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) )
-				.addView( new CharacterListWidget( this, ID ) );
+				.addView( temp );
 		}
 		
 		/* Test purposes. Delete when ready */
