@@ -61,6 +61,30 @@ public class Campaign {
 		return false;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public RPGSystem getSystem() {
+		return system;
+	}
+
+	public Date getLastPlayed() {
+		return lastPlayed;
+	}
+
+	public Long getCharacter() {
+		return character;
+	}
+
 	public String toString()
 	{
 		return "CampaignID: " + this.id.toString() + "; System: " + this.system + 
