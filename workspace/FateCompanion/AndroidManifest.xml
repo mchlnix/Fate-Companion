@@ -35,6 +35,14 @@
             android:name=".CharacterCreateView"
             android:label="@string/title_activity_character_create_view" >
         </activity>
+        <activity
+            android:name=".CharacterSheetView"
+            android:label="@string/title_activity_character_sheet_view" >
+        </activity>
+        <activity
+            android:name=".CampaignCreateView"
+            android:label="@string/title_activity_campaign_create_view" >
+        </activity>
     </application>
 
 </manifest>

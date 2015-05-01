@@ -8,5 +8,7 @@
     <string name="title_activity_character_list_view">Character List</string>
     <string name="title_activity_campaign_list_view">CampaignListView</string>
     <string name="title_activity_character_create_view">CharacterCreateView</string>
+    <string name="title_activity_character_sheet_view">CharacterSheetView</string>
+    <string name="title_activity_campaign_create_view">CampaignCreateView</string>
 
 </resources>
