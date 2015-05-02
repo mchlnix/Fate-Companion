@@ -53,6 +53,7 @@ public class CharacterListWidget extends LinearLayout {
 		LinearLayout charInfo = new LinearLayout( context );
 		
 		charInfo.setOrientation( LinearLayout.VERTICAL );
+		charInfo.setPadding( 0, 0, 0, 10 );
 		
 		TextView charName = new TextView( context );
 		charName.setTextAppearance(context, android.R.style.TextAppearance_Large);
