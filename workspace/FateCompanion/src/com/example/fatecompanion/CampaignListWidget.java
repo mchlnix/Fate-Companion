@@ -2,6 +2,7 @@ package com.example.fatecompanion;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
@@ -43,6 +44,7 @@ public class CampaignListWidget extends LinearLayout {
 		
 		TextView charName = new TextView( context );
 		charName.setTextAppearance(context, android.R.style.TextAppearance_Large);
+		charName.setTypeface( Typeface.SERIF, Typeface.NORMAL);
 		TextView charDesc = new TextView( context );
 		TextView charLast = new TextView( context );
 		
