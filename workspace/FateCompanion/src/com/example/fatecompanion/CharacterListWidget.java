@@ -1,8 +1,9 @@
 package com.example.fatecompanion;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
@@ -24,16 +25,28 @@ public class CharacterListWidget extends LinearLayout {
 		this.characterID = characterID;
 		
 		this.setOrientation( LinearLayout.HORIZONTAL );
+
+		/* define the graphic */
 		
 		ImageView colorSpace = new ImageView(context);
-		colorSpace.setMinimumWidth(50);
-		colorSpace.setMinimumHeight(100);
-		colorSpace.setPadding(10, 0, 10, 0);
 		
-		colorSpace.setAdjustViewBounds( true );
-		colorSpace.setScaleType( ScaleType.CENTER_CROP);
+		// make it as high as the other elements in the LinearLayout
 		
-		colorSpace.setBackgroundColor( Color.rgb( 255, 255, 0) );
+		colorSpace.setLayoutParams( new ViewGroup.LayoutParams( 
+				ViewGroup.LayoutParams.WRAP_CONTENT, 
+				ViewGroup.LayoutParams.MATCH_PARENT ) );
+		
+		// set the width manually, otherwise it would be 1px or as wide as the screen
+		
+		colorSpace.setMinimumWidth( 60 ); // 60 - padding = 50
+		
+		colorSpace.setPadding(0, 0, 10, 0);
+		
+		// what should be shown?
+		
+		colorSpace.setImageResource( R.drawable.widget_shape );
+		
+		// add to LinearLayout
 		
 		this.addView( colorSpace );
 		
