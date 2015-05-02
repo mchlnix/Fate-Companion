@@ -56,6 +56,7 @@ public class CharacterListWidget extends LinearLayout {
 		
 		TextView charName = new TextView( context );
 		charName.setTextAppearance(context, android.R.style.TextAppearance_Large);
+		charName.setTypeface( Typeface.SERIF, Typeface.NORMAL);
 		TextView charDesc = new TextView( context );
 		TextView charLast = new TextView( context );
 		
