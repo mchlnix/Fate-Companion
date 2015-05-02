@@ -80,18 +80,11 @@ public class CharacterListWidget extends LinearLayout {
 		
 		// seed a RNG with the character name
 		
-		try {
-			byte[] str = character.getName().getBytes( "US-ASCII" );
-			
-			String tempName = new String( str );
-			
-			Random gen = new Random( Long.parseLong( tempName, 36 ) );
-			
-			color = Color.rgb( gen.nextInt( 256 ), gen.nextInt( 256 ), gen.nextInt( 256 ));
-			
-		} 
-		catch (NumberFormatException e) {}
-		catch (UnsupportedEncodingException e) {}
+		String tempName = character.getName().replaceAll("[^a-zA-Z]","");
+		
+		Random gen = new Random( Long.parseLong( tempName, 36 ) );
+		
+		color = Color.rgb( gen.nextInt( 256 ), gen.nextInt( 256 ), gen.nextInt( 256 ));
 		
 		// set the color of the widget
 		
