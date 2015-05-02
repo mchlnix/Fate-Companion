@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class CharacterCreateView extends Activity {
 
@@ -30,5 +33,17 @@ public class CharacterCreateView extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void saveCharacter( View v )
+	{
+		Long characterID  = System.currentTimeMillis();
+		String name = ( (EditText) this.findViewById( R.id.editText1) ).getText().toString();
+		String description = ( (EditText) this.findViewById( R.id.editText2) ).getText().toString();
+		
+		if ( ! CharacterController.getInstance().saveCharacter(characterID, name, description) )
+		{
+			Toast.makeText(this, "Character could not be saved. Unknown error.", Toast.LENGTH_SHORT).show();
+		}
 	}
 }
