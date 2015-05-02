@@ -99,7 +99,7 @@ public class CharacterListWidget extends LinearLayout {
 		
 		charName.setText( character.getName() );
 		charDesc.setText( character.getDescription() );
-		charLast.setText( "Derp" );
+		charLast.setText( "Derp" ); // TODO: get last played date
 		
 		charInfo.addView( charName );
 		charInfo.addView( charDesc );
