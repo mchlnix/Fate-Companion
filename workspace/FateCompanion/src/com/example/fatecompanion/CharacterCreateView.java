@@ -1,6 +1,7 @@
 package com.example.fatecompanion;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,5 +46,9 @@ public class CharacterCreateView extends Activity {
 		{
 			Toast.makeText(this, "Character could not be saved. Unknown error.", Toast.LENGTH_SHORT).show();
 		}
+		
+		Intent intent = new Intent( this, CharacterListView.class );
+			
+		this.startActivity( intent );
 	}
 }
