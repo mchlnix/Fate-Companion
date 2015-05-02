@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
@@ -27,14 +28,16 @@ public class CampaignListWidget extends LinearLayout {
 		this.setOrientation( LinearLayout.HORIZONTAL );
 		
 		ImageView colorSpace = new ImageView(context);
-		colorSpace.setMinimumWidth(50);
-		colorSpace.setMinimumHeight(100);
-		colorSpace.setPadding(10, 0, 10, 0);
 		
-		colorSpace.setAdjustViewBounds( true );
-		colorSpace.setScaleType( ScaleType.CENTER_CROP);
+		colorSpace.setLayoutParams( new ViewGroup.LayoutParams( 
+				ViewGroup.LayoutParams.WRAP_CONTENT, 
+				ViewGroup.LayoutParams.MATCH_PARENT ) );
 		
-		colorSpace.setBackgroundColor( Color.rgb( 255, 255, 0) );
+		colorSpace.setMinimumWidth( 60 ); // 60 - padding = 50
+		
+		colorSpace.setPadding(0, 0, 10, 0);
+		
+		colorSpace.setImageResource( R.drawable.widget_shape );
 		
 		this.addView( colorSpace );
 		
