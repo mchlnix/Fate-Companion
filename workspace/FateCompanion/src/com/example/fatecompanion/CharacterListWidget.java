@@ -1,12 +1,17 @@
 package com.example.fatecompanion;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Random;
+
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CharacterListWidget extends LinearLayout {
 	
@@ -41,13 +46,9 @@ public class CharacterListWidget extends LinearLayout {
 		
 		colorSpace.setPadding(0, 0, 10, 0);
 		
-		// what should be shown?
+		// what should be shown? color is changed further down (setColorFilter)
 		
 		colorSpace.setImageResource( R.drawable.widget_shape );
-		
-		// add to LinearLayout
-		
-		this.addView( colorSpace );
 		
 		LinearLayout charInfo = new LinearLayout( context );
 		
@@ -71,6 +72,31 @@ public class CharacterListWidget extends LinearLayout {
 			character.updateValues( "DebugName", "DebugDescription", 0L );
 		}
 		
+		/* generate color depending on the character name */
+		
+		// default color if there is a problem with the name
+		
+		int color = Color.rgb( 120, 120, 120 );
+		
+		// seed a RNG with the character name
+		
+		try {
+			byte[] str = character.getName().getBytes( "US-ASCII" );
+			
+			String tempName = new String( str );
+			
+			Random gen = new Random( Long.parseLong( tempName, 36 ) );
+			
+			color = Color.rgb( gen.nextInt( 256 ), gen.nextInt( 256 ), gen.nextInt( 256 ));
+			
+		} 
+		catch (NumberFormatException e) {}
+		catch (UnsupportedEncodingException e) {}
+		
+		// set the color of the widget
+		
+		colorSpace.setColorFilter( color );
+		
 		charName.setText( character.getName() );
 		charDesc.setText( character.getDescription() );
 		charLast.setText( "Derp" );
@@ -79,6 +105,8 @@ public class CharacterListWidget extends LinearLayout {
 		charInfo.addView( charDesc );
 		charInfo.addView( charLast );
 		
+		// add to LinearLayout
+		this.addView( colorSpace );
 		this.addView( charInfo );
 	}
 	
