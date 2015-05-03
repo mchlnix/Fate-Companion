@@ -90,6 +90,9 @@ public class CampaignController {
 		// if the id is already in the campaignCache
 		// campaignCache needs to be always up to date (and complete)
 		
+		name = name.trim();
+		description = description.trim();
+		
 		if ( ! this.campaignCache.containsKey( campaignID ) )
 		{
 			Campaign newCampaign = new Campaign();
