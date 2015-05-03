@@ -1,5 +1,8 @@
 package com.example.fatecompanion;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 import android.content.Context;
@@ -24,9 +27,21 @@ public class CampaignListWidget extends LinearLayout {
 	{
 		super(context, attrs);
 		
+		this.setOrientation( LinearLayout.HORIZONTAL );
+		
 		this.campaignID = campaignID;
 		
-		this.setOrientation( LinearLayout.HORIZONTAL );
+		Campaign campaign;
+		
+		if ( campaignID != 0L )
+		{
+			campaign = CampaignController.getInstance().getCampaignByID( campaignID );
+		}
+		else //delete if real data is available
+		{
+			campaign = new Campaign();
+			campaign.updateValues( "DebugName", "DebugDescription", RPGSystem.FateCore, 0L, 0L );
+		}
 		
 		ImageView colorSpace = new ImageView(context);
 		
@@ -44,28 +59,12 @@ public class CampaignListWidget extends LinearLayout {
 		
 		colorSpace.setImageResource( R.drawable.widget_shape );
 		
+		/* set up campaign information list */
+		
 		LinearLayout charInfo = new LinearLayout( context );
 		
 		charInfo.setOrientation( LinearLayout.VERTICAL );
 		charInfo.setPadding( 0, 0, 0, 10 );
-		
-		TextView charName = new TextView( context );
-		charName.setTextAppearance(context, android.R.style.TextAppearance_Large);
-		charName.setTypeface( Typeface.SERIF, Typeface.NORMAL);
-		TextView charDesc = new TextView( context );
-		TextView charLast = new TextView( context );
-		
-		Campaign campaign;
-		
-		if ( campaignID != 0L )
-		{
-			campaign = CampaignController.getInstance().getCampaignByID( campaignID );
-		}
-		else //delete if real data is available
-		{
-			campaign = new Campaign();
-			campaign.updateValues( "DebugName", "DebugDescription", RPGSystem.FateCore, 0L, 0L );
-		}
 		
 		/* generate color depending on the character name */
 		
@@ -85,9 +84,33 @@ public class CampaignListWidget extends LinearLayout {
 		
 		colorSpace.setColorFilter( color );
 		
+		/* set up the textviews */
+		
+		// campaign name
+		
+		TextView charName = new TextView( context );
+		charName.setTextAppearance(context, android.R.style.TextAppearance_Large);
+		charName.setTypeface( Typeface.SERIF, Typeface.NORMAL );
 		charName.setText( campaign.getName() );
+		
+		// campaign description
+		
+		TextView charDesc = new TextView( context );
 		charDesc.setText( campaign.getDescription() );
-		charLast.setText( campaign.getLastPlayed().toString() ); //TODO: format correctly
+		
+		// campaign last played
+		
+		TextView charLast = new TextView( context );
+		charLast.setTextColor( color );
+		
+		SimpleDateFormat df = new SimpleDateFormat( "E dd.MM.yyyy hh:mm:ss", Locale.US );
+		
+		Date lastPlayed = campaign.getLastPlayed();
+		
+		if ( lastPlayed.getTime() != 0L )
+			charLast.setText( df.format( lastPlayed ) );
+		else
+			charLast.setText( "Not played yet" );
 		
 		charInfo.addView( charName );
 		charInfo.addView( charDesc );
