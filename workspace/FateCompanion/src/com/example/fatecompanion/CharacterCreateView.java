@@ -62,5 +62,6 @@ public class CharacterCreateView extends Activity {
 		Intent intent = new Intent( this, CharacterListView.class );
 			
 		this.startActivity( intent );
+		this.finish();
 	}
 }

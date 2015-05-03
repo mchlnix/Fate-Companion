@@ -80,5 +80,6 @@ public class CampaignCreateView extends Activity {
 		intent.putExtra( "campaignID", campaignID );
 			
 		this.startActivity( intent );
+		this.finish();
 	}
 }
