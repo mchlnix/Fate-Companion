@@ -98,6 +98,11 @@ public class CampaignListWidget extends LinearLayout {
 		TextView charDesc = new TextView( context );
 		charDesc.setText( campaign.getDescription() );
 		
+		// campaign system
+		
+		TextView charSys = new TextView( context );
+		charSys.setText( campaign.getSystem().toString() );
+		
 		// campaign last played
 		
 		TextView charLast = new TextView( context );
@@ -114,6 +119,7 @@ public class CampaignListWidget extends LinearLayout {
 		
 		charInfo.addView( charName );
 		charInfo.addView( charDesc );
+		charInfo.addView( charSys  );
 		charInfo.addView( charLast );
 		
 		this.addView( colorSpace );
