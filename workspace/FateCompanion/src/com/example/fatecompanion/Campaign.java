@@ -65,7 +65,7 @@ public class Campaign {
 		return id;
 	}
 	
-	public int validateName( String name )
+	public static int validateName( String name )
 	{
 		/*
 		 * 0 - all clear
@@ -82,7 +82,7 @@ public class Campaign {
 		return name;
 	}	
 	
-	public int validateDescription( String description )
+	public static int validateDescription( String description )
 	{
 		/*
 		 * 0 - all clear
