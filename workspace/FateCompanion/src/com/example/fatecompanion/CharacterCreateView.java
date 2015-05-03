@@ -42,6 +42,18 @@ public class CharacterCreateView extends Activity {
 		String name = ( (EditText) this.findViewById( R.id.editText1) ).getText().toString();
 		String description = ( (EditText) this.findViewById( R.id.editText2) ).getText().toString();
 		
+		if ( Character.validateName( name ) != 0 )
+		{
+			( (EditText) this.findViewById( R.id.editText1) ).requestFocus();
+			return;
+		}
+		
+		if ( Character.validateDescription( description ) != 0 )
+		{
+			( (EditText) this.findViewById( R.id.editText2) ).requestFocus();
+			return;
+		}
+		
 		if ( ! CharacterController.getInstance().saveCharacter(characterID, name, description) )
 		{
 			Toast.makeText(this, "Character could not be saved. Unknown error.", Toast.LENGTH_SHORT).show();
