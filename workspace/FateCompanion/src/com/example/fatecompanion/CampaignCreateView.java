@@ -74,12 +74,6 @@ public class CampaignCreateView extends Activity {
 		
 		CharacterController.getInstance().addCampaignToCharacter( campaignID, this.characterID );
 		
-		Intent intent = new Intent( this, CharacterSheetView.class );
-		
-		intent.putExtra( "characterID", this.characterID );
-		intent.putExtra( "campaignID", campaignID );
-			
-		this.startActivity( intent );
 		this.finish();
 	}
 }
