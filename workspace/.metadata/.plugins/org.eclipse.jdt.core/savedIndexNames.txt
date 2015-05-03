@@ -1,4 +1,0 @@
-INDEX VERSION 1.126+/home/michael/Gits/fate-companion/workspace/.metadata/.plugins/org.eclipse.jdt.core
-3863959447.index
-2126452637.index
-899912569.index
