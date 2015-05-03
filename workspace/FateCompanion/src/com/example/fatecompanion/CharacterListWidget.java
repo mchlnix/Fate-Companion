@@ -27,10 +27,22 @@ public class CharacterListWidget extends LinearLayout {
 	{
 		super(context, attrs);
 		
+		this.setOrientation( LinearLayout.HORIZONTAL );
+		
 		this.characterID = characterID;
 		
-		this.setOrientation( LinearLayout.HORIZONTAL );
-
+		Character character;
+		
+		if ( characterID != 0L )
+		{
+			character = CharacterController.getInstance().getCharacterByID( characterID );
+		}
+		else //delete if real data is available
+		{
+			character = new Character();
+			character.updateValues( "DebugName", "DebugDescription", 0L );
+		}
+		
 		/* define the graphic */
 		
 		ImageView colorSpace = new ImageView(context);
@@ -51,29 +63,12 @@ public class CharacterListWidget extends LinearLayout {
 		
 		colorSpace.setImageResource( R.drawable.widget_shape );
 		
+		/* set up character information list */
+		
 		LinearLayout charInfo = new LinearLayout( context );
 		
 		charInfo.setOrientation( LinearLayout.VERTICAL );
 		charInfo.setPadding( 0, 0, 0, 10 );
-		
-		TextView charName = new TextView( context );
-		charName.setTextAppearance(context, android.R.style.TextAppearance_Large);
-		charName.setTypeface( Typeface.SERIF, Typeface.NORMAL);
-		
-		TextView charDesc = new TextView( context );
-		TextView charLast = new TextView( context );
-		
-		Character character;
-		
-		if ( characterID != 0L )
-		{
-			character = CharacterController.getInstance().getCharacterByID( characterID );
-		}
-		else //delete if real data is available
-		{
-			character = new Character();
-			character.updateValues( "DebugName", "DebugDescription", 0L );
-		}
 		
 		/* generate color depending on the character name */
 		
@@ -93,8 +88,23 @@ public class CharacterListWidget extends LinearLayout {
 		
 		colorSpace.setColorFilter( color );
 		
+		/* set up the textviews */
+		
+		// character name
+		
+		TextView charName = new TextView( context );
+		charName.setTextAppearance(context, android.R.style.TextAppearance_Large);
+		charName.setTypeface( Typeface.SERIF, Typeface.NORMAL);
 		charName.setText( character.getName() );
+		
+		// character description
+		
+		TextView charDesc = new TextView( context );
 		charDesc.setText( character.getDescription() );
+		
+		// character last played
+		
+		TextView charLast = new TextView( context );
 		
 		SimpleDateFormat df = new SimpleDateFormat( "E dd.MM.yyyy hh:mm:ss", Locale.US );
 		
@@ -104,6 +114,8 @@ public class CharacterListWidget extends LinearLayout {
 			charLast.setText( df.format( lastPlayed ) ); // TODO: get last played date
 		else
 			charLast.setText( "Not in play" );
+		
+		// put it all together
 		
 		charInfo.addView( charName );
 		charInfo.addView( charDesc );
