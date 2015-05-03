@@ -41,6 +41,18 @@
             android:entries="@array/system_items"
             android:prompt="@string/system_prompt" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        	android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="saveCampaign"
+            android:text="Save Campaign" />
+
     </LinearLayout>
 
 </LinearLayout>
