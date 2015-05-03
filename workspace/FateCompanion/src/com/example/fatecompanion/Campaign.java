@@ -64,9 +64,35 @@ public class Campaign {
 	public Long getId() {
 		return id;
 	}
+	
+	public int validateName( String name )
+	{
+		/*
+		 * 0 - all clear
+		 * 1 - empty string
+		 */
+		
+		if ( name.trim().isEmpty() )
+			return 1;
+		
+		return 0;
+	}
 
 	public String getName() {
 		return name;
+	}	
+	
+	public int validateDescription( String description )
+	{
+		/*
+		 * 0 - all clear
+		 * 1 - empty string
+		 */
+		
+		if ( description.trim().isEmpty() )
+			return 1;
+		
+		return 0;
 	}
 
 	public String getDescription() {
