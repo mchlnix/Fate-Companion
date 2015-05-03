@@ -93,7 +93,6 @@ public class CampaignListView extends Activity {
 		intent.putExtra( "characterID", characterID );
 		
 		this.startActivity( intent );
-		
 	}
     
 }

@@ -1,6 +1,5 @@
 package com.example.fatecompanion;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
 import android.content.Context;
