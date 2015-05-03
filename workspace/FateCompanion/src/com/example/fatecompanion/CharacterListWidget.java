@@ -1,5 +1,8 @@
 package com.example.fatecompanion;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 import android.content.Context;
@@ -56,6 +59,7 @@ public class CharacterListWidget extends LinearLayout {
 		TextView charName = new TextView( context );
 		charName.setTextAppearance(context, android.R.style.TextAppearance_Large);
 		charName.setTypeface( Typeface.SERIF, Typeface.NORMAL);
+		
 		TextView charDesc = new TextView( context );
 		TextView charLast = new TextView( context );
 		
@@ -91,7 +95,15 @@ public class CharacterListWidget extends LinearLayout {
 		
 		charName.setText( character.getName() );
 		charDesc.setText( character.getDescription() );
-		charLast.setText( "Derp" ); // TODO: get last played date
+		
+		SimpleDateFormat df = new SimpleDateFormat( "E dd.MM.yyyy hh:mm:ss", Locale.US );
+		
+		Date lastPlayed = CharacterController.getInstance().getLastPlayed( characterID );
+		
+		if ( lastPlayed.getTime() != 0L )
+			charLast.setText( df.format( lastPlayed ) ); // TODO: get last played date
+		else
+			charLast.setText( "Not in play" );
 		
 		charInfo.addView( charName );
 		charInfo.addView( charDesc );
