@@ -18,6 +18,20 @@ public class CharacterListView extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_character_list_view);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.character_list_view, menu);
+		return true;
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		
+		( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) ).removeAllViews();
 		
 		ArrayList<Long> characterIDs = CharacterController.getInstance().getAllCharacterIDs();
 		
@@ -57,13 +71,6 @@ public class CharacterListView extends Activity {
 		addChar.setOnClickListener( click_button );
 		
 		((LinearLayout) this.findViewById( R.id.LinearLayout1 ) ).addView( addChar );
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.character_list_view, menu);
-		return true;
 	}
 
 	@Override
