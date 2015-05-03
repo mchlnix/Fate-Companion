@@ -105,6 +105,7 @@ public class CharacterController {
 				/*
 				 * TODO: Error handling.
 				 */
+				this.characterCache.put( characterID, newChar );
 			}
 		}
 		
