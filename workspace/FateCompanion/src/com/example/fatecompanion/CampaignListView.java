@@ -19,8 +19,22 @@ public class CampaignListView extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_campaign_list_view);
-        
-        Intent intent = this.getIntent();
+    }
+
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.campaign_list_view, menu);
+        return true;
+    }
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		
+		( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) ).removeAllViews();
+		
+		Intent intent = this.getIntent();
         
         this.characterID = intent.getLongExtra( "characterID", 0L );
         
@@ -62,15 +76,8 @@ public class CampaignListView extends Activity {
 		addCamp.setOnClickListener( click_button );
 		
 		((LinearLayout) this.findViewById( R.id.LinearLayout1 ) ).addView( addCamp );
-    }
+	}
 
-	@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.campaign_list_view, menu);
-        return true;
-    }
-	
 	private void goToCharacterSheet( Long characterID, Long campaignID )
 	{
 		Intent intent = new Intent( this, CharacterSheetView.class );
