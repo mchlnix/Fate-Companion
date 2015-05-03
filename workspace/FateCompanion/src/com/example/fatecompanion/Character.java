@@ -79,9 +79,35 @@ public class Character {
 		return this.id;
 	}
 
+	public static int validateName( String name )
+	{
+		/*
+		 * 0 - all clear
+		 * 1 - empty string
+		 */
+		
+		if ( name.trim().isEmpty() )
+			return 1;
+		
+		return 0;
+	}
+
 	public String getName() 
 	{
 		return this.name;
+	}
+	
+	public static int validateDescription( String description )
+	{
+		/*
+		 * 0 - all clear
+		 * 1 - empty string
+		 */
+		
+		if ( description.trim().isEmpty() )
+			return 1;
+		
+		return 0;
 	}
 
 	public String getDescription() 
