@@ -40,26 +40,6 @@ public class CharacterListView extends Activity {
 				.addView( temp );
 		}
 		
-		/* Test purposes. Delete when ready */
-		
-		CharacterListWidget temp = new CharacterListWidget( this, 0L );
-		
-		// Test 0L is debug ID
-		temp.setClickable( true );		
-		
-		OnClickListener click = new OnClickListener() {
-			
-			public void onClick( View v )
-			{
-				goToCampaign( ((CharacterListWidget) v).getCharacterID() );
-			}
-		};
-		
-		temp.setOnClickListener( click );
-		
-		( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) )
-		.addView( temp );
-		
 		/* Add character create button */
 		
 		Button addChar = new Button( this );
