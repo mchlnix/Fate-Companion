@@ -95,6 +95,9 @@ public class CharacterController {
 		// if the id is already in the characterCache
 		// characterCache needs to be always up to date (and complete)
 		
+		name = name.trim();
+		description = description.trim();
+		
 		if ( ! this.characterCache.containsKey( characterID ) )
 		{
 			Character newChar = new Character();
