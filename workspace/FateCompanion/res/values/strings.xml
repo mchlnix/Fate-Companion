@@ -10,5 +10,11 @@
     <string name="title_activity_character_create_view">CharacterCreateView</string>
     <string name="title_activity_character_sheet_view">CharacterSheetView</string>
     <string name="title_activity_campaign_create_view">CampaignCreateView</string>
+    <string name="system_prompt">Choose your system</string>
+    <string-array name="system_items">
+        <item >Atomic Robo</item>
+        <item >Fate Core</item>
+        <item >Fate Accelerated</item>
+    </string-array>
 
 </resources>
