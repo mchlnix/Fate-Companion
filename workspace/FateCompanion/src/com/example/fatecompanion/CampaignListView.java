@@ -38,6 +38,8 @@ public class CampaignListView extends Activity {
         
         this.characterID = intent.getLongExtra( "characterID", 0L );
         
+		this.setTitle( "Campaigns of " + CharacterController.getInstance().getCharacterByID( this.characterID ).getName() );
+        
         ArrayList<Long> campaignIDs = CharacterController.getInstance().getCampaignIDsByCharacterID( characterID );
         
         for ( Long ID : campaignIDs )
