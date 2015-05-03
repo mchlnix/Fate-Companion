@@ -1,6 +1,7 @@
 package com.example.fatecompanion;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class CharacterController {
@@ -118,6 +119,24 @@ public class CharacterController {
 		// TODO: Error handling, when no character found.
 		// TODO: Change return type to boolean?
 		this.characterCache.get( characterID ).addCharacterSheet( null, campaignID );
+	}
+	
+	public Date getLastPlayed( Long characterID )
+	{
+		ArrayList<Long> list = getCampaignIDsByCharacterID( characterID );
+		
+		Date date = new Date();
+		date.setTime( 0L );
+		
+		for ( Long campaignID : list )
+		{
+			Date temp = CampaignController.getInstance().getCampaignByID( campaignID ).getLastPlayed();
+			
+			if ( temp.after( date ) )
+				date = temp;
+		}
+		
+		return date;
 	}
 	
 }
