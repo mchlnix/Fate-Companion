@@ -105,13 +105,14 @@ public class CharacterListWidget extends LinearLayout {
 		// character last played
 		
 		TextView charLast = new TextView( context );
+		charLast.setTextColor( color );
 		
 		SimpleDateFormat df = new SimpleDateFormat( "E dd.MM.yyyy hh:mm:ss", Locale.US );
 		
 		Date lastPlayed = CharacterController.getInstance().getLastPlayed( characterID );
 		
 		if ( lastPlayed.getTime() != 0L )
-			charLast.setText( df.format( lastPlayed ) ); // TODO: get last played date
+			charLast.setText( df.format( lastPlayed ) );
 		else
 			charLast.setText( "Not in play" );
 		
