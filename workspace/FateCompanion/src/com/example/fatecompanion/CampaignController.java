@@ -95,12 +95,13 @@ public class CampaignController {
 			Campaign newCampaign = new Campaign();
 			
 			if ( newCampaign.loadFromDB( campaignID ) )
-				this.campaignCache.put( characterID, newCampaign );
+				this.campaignCache.put( campaignID, newCampaign );
 			else
 			{
 				/*
 				 * TODO: Error handling.
 				 */
+				this.campaignCache.put( campaignID, newCampaign );
 			}
 		}
 		return this.campaignCache.get( campaignID ).updateValues(name, description, system, characterID, campaignID);
