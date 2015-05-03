@@ -98,6 +98,7 @@ public class CharacterListWidget extends LinearLayout {
 		// character description
 		
 		TextView charDesc = new TextView( context );
+		charDesc.setMaxLines( 3 );
 		charDesc.setText( character.getDescription() );
 		
 		// character last played

@@ -94,6 +94,7 @@ public class CampaignListWidget extends LinearLayout {
 		// campaign description
 		
 		TextView charDesc = new TextView( context );
+		charDesc.setMaxLines( 3 );
 		charDesc.setText( campaign.getDescription() );
 		
 		// campaign system
