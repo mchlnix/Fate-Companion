@@ -72,11 +72,9 @@ public class CampaignListWidget extends LinearLayout {
 		
 		int color = Color.rgb( 120, 120, 120 );
 		
-		// seed a RNG with the character name
+		// seed a RNG with the campaignID
 		
-		String tempName = campaign.getName().replaceAll( "[^a-zA-Z]","" );
-		
-		Random gen = new Random( Long.parseLong( tempName, 36 ) );
+		Random gen = new Random( this.campaignID );
 			
 		color = Color.rgb( gen.nextInt( 256 ), gen.nextInt( 256 ), gen.nextInt( 256 ));
 		
