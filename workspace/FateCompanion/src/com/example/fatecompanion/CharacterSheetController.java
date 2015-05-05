@@ -15,13 +15,17 @@ public class CharacterSheetController {
 	{
 		this.characterSheetCache.put( new CharacterSheetID( campaignID, characterID ), characterSheet );
 		
-		return CharacterController.getInstance().getCharacterByID( characterID ).addCharacterSheet( characterSheet, campaignID );
+		//TODO: Fix this Max!
+		//return CharacterController.getInstance().getCharacterByID( characterID ).addCharacterSheet( characterSheet, campaignID );
+		return false;
 	}
 	
 	public boolean addTemplateCharacterSheet( Long characterID, CharacterSheet sheet )
 	{
-		return CharacterController.getInstance().getCharacterByID( characterID )
-		.addTemplateSheet( sheet, sheet.getSystem() );
+		//TODO: Fix this Max!
+		//return CharacterController.getInstance().getCharacterByID( characterID )
+		//.addTemplateSheet( sheet, sheet.getSystem() );
+		return false;
 	}
 	
 	public CharacterSheet getCharacterSheet( Long campaignID, Long characterID )
