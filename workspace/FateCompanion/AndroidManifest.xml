@@ -29,7 +29,8 @@
         </activity>
         <activity
             android:name=".CharacterCreateView"
-            android:label="@string/title_activity_character_create_view" >
+            android:label="@string/title_activity_character_create_view"
+            android:windowSoftInputMode="adjustResize" >
         </activity>
         <activity
             android:name=".CharacterSheetView"
@@ -37,7 +38,8 @@
         </activity>
         <activity
             android:name=".CampaignCreateView"
-            android:label="@string/title_activity_campaign_create_view" >
+            android:label="@string/title_activity_campaign_create_view"
+            android:windowSoftInputMode="adjustResize" >
         </activity>
     </application>
 
