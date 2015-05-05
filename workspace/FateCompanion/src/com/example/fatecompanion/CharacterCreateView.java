@@ -53,7 +53,7 @@ public class CharacterCreateView extends Activity {
 			return;
 		}
 		
-		if ( ! CharacterController.getInstance().saveCharacter(characterID, name, description) )
+		if ( ! CharacterController.getInstance(getApplicationContext()).saveCharacter(characterID, name, description) )
 		{
 			Toast.makeText(this, "Character could not be saved. Unknown error.", Toast.LENGTH_SHORT).show();
 		}

@@ -17,10 +17,12 @@ import android.widget.TextView;
 public class CharacterListWidget extends LinearLayout {
 	
 	private Long characterID;
+	private Context appContext;
 	
-	public CharacterListWidget(Context context, Long characterID)
+	public CharacterListWidget(Context context, Long characterID, Context applicationContext)
 	{
 		this(context, null, characterID);
+		appContext = applicationContext;
 	}
 
 	public CharacterListWidget(Context context, AttributeSet attrs, Long characterID) 
@@ -35,7 +37,7 @@ public class CharacterListWidget extends LinearLayout {
 		
 		if ( characterID != 0L )
 		{
-			character = CharacterController.getInstance().getCharacterByID( characterID );
+			character = CharacterController.getInstance(appContext).getCharacterByID( characterID );
 		}
 		else //delete if real data is available
 		{
@@ -108,7 +110,7 @@ public class CharacterListWidget extends LinearLayout {
 		
 		SimpleDateFormat df = new SimpleDateFormat( "E dd.MM.yyyy hh:mm:ss", Locale.US );
 		
-		Date lastPlayed = CharacterController.getInstance().getLastPlayed( characterID );
+		Date lastPlayed = CharacterController.getInstance(appContext).getLastPlayed( characterID );
 		
 		if ( lastPlayed.getTime() != 0L )
 			charLast.setText( df.format( lastPlayed ) );

@@ -33,11 +33,11 @@ public class CharacterListView extends Activity {
 		
 		( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) ).removeAllViews();
 		
-		ArrayList<Long> characterIDs = CharacterController.getInstance().getAllCharacterIDs();
+		ArrayList<Long> characterIDs = CharacterController.getInstance(getApplicationContext()).getAllCharacterIDs();
 		
 		for ( Long ID : characterIDs )
 		{
-			CharacterListWidget temp = new CharacterListWidget( this, ID );
+			CharacterListWidget temp = new CharacterListWidget( this, ID, getApplicationContext() );
 			temp.setClickable( true );		
 			
 			OnClickListener click = new OnClickListener() {

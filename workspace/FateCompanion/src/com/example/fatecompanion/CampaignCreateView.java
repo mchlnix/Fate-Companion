@@ -71,7 +71,7 @@ public class CampaignCreateView extends Activity {
 			Toast.makeText(this, "Campaign could not be saved. Unknown error.", Toast.LENGTH_SHORT).show();
 		}
 		
-		CharacterController.getInstance().addCampaignToCharacter( campaignID, this.characterID );
+		CharacterController.getInstance(getApplicationContext()).addCampaignToCharacter( campaignID, this.characterID );
 		
 		this.finish();
 	}

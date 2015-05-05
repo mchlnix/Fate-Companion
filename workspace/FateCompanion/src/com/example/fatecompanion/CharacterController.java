@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
+import android.content.Context;
+
 public class CharacterController {
 	
 	private static CharacterController instance = null;
 
 	private HashMap<Long, Character> characterCache;
+	
+	private Context appContext;
 	
 	private CharacterController()
 	{
@@ -37,13 +41,14 @@ public class CharacterController {
 		}
 	}
 	
-	public static synchronized CharacterController getInstance()
+	public static synchronized CharacterController getInstance(Context applicationContext)
 	{
 		// synchronized, because of wikipedia
 		
 		if (instance == null)
 		{
 			instance = new CharacterController();
+			instance.appContext = applicationContext;
 		}
 		
 		return instance;
