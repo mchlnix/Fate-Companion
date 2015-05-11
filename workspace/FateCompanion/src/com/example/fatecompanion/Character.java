@@ -3,6 +3,9 @@ package com.example.fatecompanion;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
 
 public class Character {
 	
@@ -12,6 +15,7 @@ public class Character {
 	private ArrayList<Long> campaigns;
 	private HashMap<RPGSystem, CharacterSheet> templateSheets;
 	private HashMap<Long, CharacterSheet> sheets;
+	
 	
 	public Character()
 	{
@@ -24,40 +28,40 @@ public class Character {
 		this.sheets = new HashMap<Long, CharacterSheet>();
 	}
 	
-	public boolean updateValues( String name, String description, Long characterID )
+	public boolean updateValues( String name, String description, Long characterID , SQLiteDatabase db )
 	{
 		this.id = characterID;
 		this.name = name;
 		this.description = description;
 		
-		return this.saveToDB();
+		return this.saveToDB(db);
 	}
 
-	public boolean addTemplateSheet( CharacterSheet sheet, RPGSystem system )
+	public boolean addTemplateSheet( CharacterSheet sheet, RPGSystem system , SQLiteDatabase db )
 	{
 		this.templateSheets.put( system, sheet );
 		
-		return this.saveToDB();
+		return this.saveToDB(db);
 	}
 	
-	public boolean addCharacterSheet( CharacterSheet sheet, Long campaignID )
+	public boolean addCharacterSheet( CharacterSheet sheet, Long campaignID , SQLiteDatabase db )
 	{
 		if ( ! this.campaigns.contains( campaignID ) )
 			this.campaigns.add( campaignID );
 
 		this.sheets.put( campaignID, sheet );
 		
-		return this.saveToDB();
+		return this.saveToDB(db);
 	}
 	
-	public boolean removeCampaign( Long campaignID )
+	public boolean removeCampaign( Long campaignID , SQLiteDatabase db )
 	{
 		this.sheets.remove( campaignID );
 		
-		return this.saveToDB();
+		return this.saveToDB(db);
 	}
 	
-	public boolean loadFromDB( Long characterID )
+	public boolean loadFromDB( Long characterID , SQLiteDatabase database )
 	{
 		// TODO: load from DB using the parameter ID
 		// and set the properties
@@ -65,7 +69,7 @@ public class Character {
 		return false;
 	}
 	
-	private boolean saveToDB()
+	private boolean saveToDB( SQLiteDatabase database )
 	{
 		/*
 		 * TODO: save to DB

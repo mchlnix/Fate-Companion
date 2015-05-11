@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 public class CharacterController {
 	
@@ -13,6 +14,10 @@ public class CharacterController {
 	private HashMap<Long, Character> characterCache;
 	
 	private Context appContext;
+	
+	private DbHelper dbHelper;
+	
+	private SQLiteDatabase database;
 	
 	private CharacterController()
 	{
@@ -30,7 +35,7 @@ public class CharacterController {
 		{
 			Character newChar = new Character();
 			
-			if ( newChar.loadFromDB( characterID ) )
+			if ( newChar.loadFromDB( characterID , database ) )
 				this.characterCache.put( characterID, newChar );
 			else
 			{
@@ -49,6 +54,8 @@ public class CharacterController {
 		{
 			instance = new CharacterController();
 			instance.appContext = applicationContext;
+			instance.dbHelper = new DbHelper(instance.appContext);
+			instance.database = instance.dbHelper.getWritableDatabase();
 		}
 		
 		return instance;
@@ -74,7 +81,7 @@ public class CharacterController {
 			
 			Character newChar = new Character();
 			
-			if ( newChar.loadFromDB( characterID ) )
+			if ( newChar.loadFromDB( characterID , database ) )
 				this.characterCache.put( characterID, newChar );
 			else
 			{
@@ -107,7 +114,7 @@ public class CharacterController {
 		{
 			Character newChar = new Character();
 			
-			if ( newChar.loadFromDB( characterID ) )
+			if ( newChar.loadFromDB( characterID , database ) )
 				this.characterCache.put( characterID, newChar );
 			else
 			{
@@ -118,7 +125,7 @@ public class CharacterController {
 			}
 		}
 		
-		return this.characterCache.get( characterID ).updateValues( name, description, characterID );
+		return this.characterCache.get( characterID ).updateValues( name, description, characterID , database );
 	}
 	
 	public void addCampaignToCharacter( Long campaignID, Long characterID )
@@ -126,7 +133,7 @@ public class CharacterController {
 		// adds empty characterSheet, so that the character has the campaign
 		// TODO: Error handling, when no character found.
 		// TODO: Change return type to boolean?
-		this.characterCache.get( characterID ).addCharacterSheet( null, campaignID );
+		this.characterCache.get( characterID ).addCharacterSheet( null, campaignID , database );
 	}
 	
 	public Date getLastPlayed( Long characterID )

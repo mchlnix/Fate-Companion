@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.Random;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
@@ -18,11 +19,14 @@ public class CharacterListWidget extends LinearLayout {
 	
 	private Long characterID;
 	private Context appContext;
+	private SQLiteDatabase db;
 	
 	public CharacterListWidget(Context context, Long characterID, Context applicationContext)
 	{
 		this(context, null, characterID);
 		appContext = applicationContext;
+		
+		db = new DbHelper(appContext).getWritableDatabase();
 	}
 
 	public CharacterListWidget(Context context, AttributeSet attrs, Long characterID) 
@@ -43,7 +47,7 @@ public class CharacterListWidget extends LinearLayout {
 		else //delete if real data is available
 		{
 			character = new Character();
-			character.updateValues( "DebugName", "DebugDescription", 0L );
+			character.updateValues( "DebugName", "DebugDescription", 0L , db );
 		}
 		
 		/* define the graphic */
