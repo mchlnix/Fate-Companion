@@ -5,7 +5,9 @@ import java.util.Date;
 import java.util.HashMap;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 public class CharacterController {
 	
@@ -19,18 +21,21 @@ public class CharacterController {
 	
 	private SQLiteDatabase database;
 	
-	private CharacterController()
-	{
-		// Get every characterID from the DB, then populate the cache
+	
+	private CharacterController(Context applicationContext)
+	{		
+		//if problems occur - switch "this" for "instance"
+		this.appContext = applicationContext;
+		this.dbHelper = new DbHelper(this.appContext);
+		this.database = this.dbHelper.getWritableDatabase();
 		
 		this.characterCache = new HashMap<Long, Character>();
 		
-		ArrayList<Long> characterIDs = new ArrayList<Long>();
 		
-		/*
-		 * TODO: load characterIDs from DB and save them into `characterIDs`
-		 */
+		// Get every characterID from the DB
+		ArrayList<Long> characterIDs = loadCharacterIDs();
 		
+		//populate characterCache
 		for ( Long characterID : characterIDs)
 		{
 			Character newChar = new Character();
@@ -39,9 +44,7 @@ public class CharacterController {
 				this.characterCache.put( characterID, newChar );
 			else
 			{
-				/*
-				 * TODO: Error handling. 
-				 */
+				Toast.makeText(appContext, "Character with ID " + Long.toString(characterID) + " could not be loaded.", Toast.LENGTH_SHORT).show();
 			}
 		}
 	}
@@ -52,10 +55,7 @@ public class CharacterController {
 		
 		if (instance == null)
 		{
-			instance = new CharacterController();
-			instance.appContext = applicationContext;
-			instance.dbHelper = new DbHelper(instance.appContext);
-			instance.database = instance.dbHelper.getWritableDatabase();
+			instance = new CharacterController(applicationContext);
 		}
 		
 		return instance;
@@ -69,65 +69,66 @@ public class CharacterController {
 		return new ArrayList<Long>( this.characterCache.keySet() );
 	}
 	
+	//if not successful returns null
 	public Character getCharacterByID( Long characterID )
 	{
 		if ( ! this.characterCache.containsKey( characterID ) )
-		{
-			// Shouldn't happen, since the characterCache should be complete
+		{	
+			//load all characterIDs and check database for the specific ID
+			ArrayList<Long> characterIDs = loadCharacterIDs();
 			
-			/*
-			 * TODO: Error handling.
-			 */
-			
-			Character newChar = new Character();
-			
-			if ( newChar.loadFromDB( characterID , database ) )
-				this.characterCache.put( characterID, newChar );
-			else
+			if ( ! characterIDs.contains( characterID ) )
 			{
-				/*
-				 * TODO: Error handling.
-				 */
+				//can't do anything, so User is advised to return to CharacterListView
+				Toast.makeText(appContext, "Please return to list of characters and try again.", Toast.LENGTH_LONG).show();
+				
+				return null;
+			} else
+			{
+				//reload the Cache, completely
+				for ( Long charID : characterIDs)
+				{
+					Character newChar = new Character();
+					
+					if ( newChar.loadFromDB( charID , database ) )
+						this.characterCache.put( charID, newChar );
+					else
+					{
+						Toast.makeText(appContext, "Character with ID " + Long.toString(charID) + " could not be loaded.", Toast.LENGTH_SHORT).show();
+					}
+				}
 			}
-			
-			// if not successful, this function returns null
 		}
 		
 		return this.characterCache.get( characterID );
 	}
 	
+	//TODO same safety as getCharacterByID()
 	public ArrayList<Long> getCampaignIDsByCharacterID( Long characterID )
 	{
 		return this.characterCache.get( characterID ).getCampaigns();
 	}
 	
+	// This method makes or edits a character, depending on, 
+	// if the id is already in the characterCache
+	// characterCache needs to be always up to date (and complete)
 	public boolean saveCharacter( Long characterID, String name, String description ) 
-	{
-		// This method makes or edits a character, depending on, 
-		// if the id is already in the characterCache
-		// characterCache needs to be always up to date (and complete)
-		
+	{	
 		name = name.trim();
 		description = description.trim();
 		
 		if ( ! this.characterCache.containsKey( characterID ) )
 		{
+			//new character is not yet in the cache, so it is added
 			Character newChar = new Character();
-			
-			if ( newChar.loadFromDB( characterID , database ) )
-				this.characterCache.put( characterID, newChar );
-			else
-			{
-				/*
-				 * TODO: Error handling.
-				 */
-				this.characterCache.put( characterID, newChar );
-			}
+			this.characterCache.put(characterID, newChar);
 		}
+		//else: character needs to be updated, which is called in the return-clause
 		
 		return this.characterCache.get( characterID ).updateValues( name, description, characterID , database );
 	}
 	
+	//TODO
 	public void addCampaignToCharacter( Long campaignID, Long characterID )
 	{
 		// adds empty characterSheet, so that the character has the campaign
@@ -152,6 +153,27 @@ public class CharacterController {
 		}
 		
 		return date;
+	}
+	
+	//loads every characterID from the database and returns them in an ArrayList
+	private ArrayList<Long> loadCharacterIDs( )
+	{
+		ArrayList<Long> characterIDs = new ArrayList<Long>();
+		
+		//queries every character_id into a cursor
+		String[] projection = {DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID};
+		Cursor c = this.database.query(DatabaseContract.CharacterEntry.TABLE_NAME, projection, null, null, null, null, null);
+				
+		//iterate over cursor and populate characterIDs
+		while ( c.moveToNext() )
+		{
+			characterIDs.add( c.getLong ( c.getColumnIndex( DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID ) ) );
+		}
+				
+		Toast.makeText(appContext, "List: Complete", Toast.LENGTH_LONG).show();
+		c.close();
+		
+		return characterIDs;
 	}
 	
 }
