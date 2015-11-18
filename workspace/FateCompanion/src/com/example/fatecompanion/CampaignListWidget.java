@@ -57,12 +57,12 @@ public class CampaignListWidget extends LinearLayout {
 		
 		/* set up campaign information list */
 		
-		LinearLayout charInfo = new LinearLayout( context );
+		LinearLayout campInfo = new LinearLayout( context );
 		
-		charInfo.setOrientation( LinearLayout.VERTICAL );
-		charInfo.setPadding( 0, 0, 0, 10 );
+		campInfo.setOrientation( LinearLayout.VERTICAL );
+		campInfo.setPadding( 0, 10, 0, 20 ); // 10 more at the bottom for symmetry
 		
-		/* generate color depending on the character name */
+		/* generate color depending on the campaign name */
 		
 		// default color if there is a problem with the name
 		
