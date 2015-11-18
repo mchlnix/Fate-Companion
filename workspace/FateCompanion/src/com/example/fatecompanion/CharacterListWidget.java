@@ -17,6 +17,9 @@ import android.widget.TextView;
 
 public class CharacterListWidget extends LinearLayout {
 	
+	private static final int PADDING_NAME = 0;
+	private static final int PADDING_INFO = 10;
+	
 	private Long characterID;
 	private Context appContext;
 	private SQLiteDatabase db;
@@ -90,6 +93,7 @@ public class CharacterListWidget extends LinearLayout {
 		// character name
 		
 		TextView charName = new TextView( context );
+		charName.setPadding( PADDING_NAME, 0, 0, 0);
 		charName.setTextAppearance(context, android.R.style.TextAppearance_Large);
 		charName.setTypeface( Typeface.SERIF, Typeface.NORMAL);
 		charName.setText( character.getName() );
@@ -97,12 +101,14 @@ public class CharacterListWidget extends LinearLayout {
 		// character description
 		
 		TextView charDesc = new TextView( context );
+		charDesc.setPadding( PADDING_INFO, 0, 0, 0);
 		charDesc.setMaxLines( 3 );
 		charDesc.setText( character.getDescription() );
 		
 		// character last played
 		
 		TextView charLast = new TextView( context );
+		charLast.setPadding( PADDING_INFO, 0, 0, 0);
 		charLast.setTextColor( color );
 		
 		SimpleDateFormat df = new SimpleDateFormat( "E dd.MM.yyyy hh:mm:ss", Locale.US );
