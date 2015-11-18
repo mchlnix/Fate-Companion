@@ -123,6 +123,10 @@ public class CampaignListWidget extends LinearLayout {
 		
 		this.addView( colorSpace );
 		this.addView( campInfo );
+		
+		int bgcolor = color - (224<<24);
+		
+		this.setBackgroundColor( bgcolor );
 	}
 	
 	public Long getCampaignID()
