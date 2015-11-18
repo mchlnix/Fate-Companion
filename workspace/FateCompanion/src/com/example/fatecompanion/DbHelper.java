@@ -24,6 +24,9 @@ public class DbHelper extends SQLiteOpenHelper {
 		//
 		String createCharacterTable = "CREATE TABLE " + DatabaseContract.CharacterEntry.TABLE_NAME + " (" + DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID + " INTEGER PRIMARY KEY," + DatabaseContract.CharacterEntry.COLUMN_NAME_NAME + " TEXT," + DatabaseContract.CharacterEntry.COLUMN_NAME_DESCRIPTION + " TEXT" + " )";
 		db.execSQL(createCharacterTable);
+		
+		String createCampaignTable =  "CREATE TABLE " + DatabaseContract.CampaignEntry.TABLE_NAME + " (" + DatabaseContract.CampaignEntry.COLUMN_NAME_CAMPAIGN_ID + " Integer PRIMARY KEY," + DatabaseContract.CampaignEntry.COLUMN_NAME_NAME + " TEXT," + DatabaseContract.CampaignEntry.COLUMN_NAME_DESCRIPTION + " TEXT," + DatabaseContract.CampaignEntry.COLUMN_NAME_SYSTEM + " TEXT," + DatabaseContract.CampaignEntry.COLUMN_NAME_LAST_PLAYED + " DATE, FOREIGN KEY(" + DatabaseContract.CampaignEntry.COLUMN_NAME_CHARACTER + ") references " + DatabaseContract.CharacterEntry.TABLE_NAME + "(" + DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID + "))";
+		db.execSQL(createCampaignTable);
 	}
 
 	@Override
