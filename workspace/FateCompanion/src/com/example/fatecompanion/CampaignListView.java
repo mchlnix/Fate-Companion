@@ -10,9 +10,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Space;
 
 public class CampaignListView extends Activity {
 
+	private static final int SEPARATOR_HEIGHT = 10;
+	
 	private Long characterID;
 	
     @Override
@@ -59,6 +62,13 @@ public class CampaignListView extends Activity {
 			
 			( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) )
 				.addView( temp );
+			
+			Space separator = new Space(this);
+			
+			separator.setMinimumHeight( SEPARATOR_HEIGHT );
+			
+			( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) )
+				.addView( separator );
         }
         
         /* Add character create button */
