@@ -16,6 +16,9 @@ import android.widget.TextView;
 
 public class CampaignListWidget extends LinearLayout {
 	
+	private static final int PADDING_NAME = 0;
+	private static final int PADDING_INFO = 10;
+	
 	private Long campaignID;
 	
 	public CampaignListWidget(Context context, Long campaignID)
@@ -87,43 +90,47 @@ public class CampaignListWidget extends LinearLayout {
 		
 		// campaign name
 		
-		TextView charName = new TextView( context );
-		charName.setTextAppearance(context, android.R.style.TextAppearance_Large);
-		charName.setTypeface( Typeface.SERIF, Typeface.NORMAL );
-		charName.setText( campaign.getName() );
+		TextView campName = new TextView( context );
+		campName.setPadding( PADDING_NAME, 0, 0, 0 );
+		campName.setTextAppearance(context, android.R.style.TextAppearance_Large);
+		campName.setTypeface( Typeface.SERIF, Typeface.NORMAL );
+		campName.setText( campaign.getName() );
 		
 		// campaign description
 		
-		TextView charDesc = new TextView( context );
-		charDesc.setMaxLines( 3 );
-		charDesc.setText( campaign.getDescription() );
+		TextView campDesc = new TextView( context );
+		campDesc.setPadding( PADDING_INFO, 0, 0, 0 );
+		campDesc.setMaxLines( 3 );
+		campDesc.setText( campaign.getDescription() );
 		
 		// campaign system
 		
-		TextView charSys = new TextView( context );
-		charSys.setText( campaign.getSystem().toString() );
+		TextView campSys = new TextView( context );
+		campSys.setPadding( PADDING_INFO, 0, 0, 0 );
+		campSys.setText( campaign.getSystem().toString() );
 		
 		// campaign last played
 		
-		TextView charLast = new TextView( context );
-		charLast.setTextColor( color );
+		TextView campLast = new TextView( context );
+		//campLast.setTextColor( color );
+		campLast.setPadding( PADDING_INFO, 0, 0, 0 );
 		
 		SimpleDateFormat df = new SimpleDateFormat( "E dd.MM.yyyy hh:mm:ss", Locale.US );
 		
 		Date lastPlayed = campaign.getLastPlayed();
 		
 		if ( lastPlayed.getTime() != 0L )
-			charLast.setText( df.format( lastPlayed ) );
+			campLast.setText( df.format( lastPlayed ) );
 		else
-			charLast.setText( "Not played yet" );
+			campLast.setText( "Not played yet" );
 		
-		charInfo.addView( charName );
-		charInfo.addView( charDesc );
-		charInfo.addView( charSys  );
-		charInfo.addView( charLast );
+		campInfo.addView( campName );
+		campInfo.addView( campDesc );
+		campInfo.addView( campSys  );
+		campInfo.addView( campLast );
 		
 		this.addView( colorSpace );
-		this.addView( charInfo );
+		this.addView( campInfo );
 	}
 	
 	public Long getCampaignID()
