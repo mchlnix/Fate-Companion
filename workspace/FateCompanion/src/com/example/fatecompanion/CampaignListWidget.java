@@ -31,7 +31,7 @@ public class CampaignListWidget extends LinearLayout {
 		super(context, attrs);
 		
 		this.setOrientation( LinearLayout.HORIZONTAL );
-		this.setPadding( 0, 0, 0, 10 );
+		//this.setPadding( 0, 0, 0, 10 );
 		
 		this.campaignID = campaignID;
 		
