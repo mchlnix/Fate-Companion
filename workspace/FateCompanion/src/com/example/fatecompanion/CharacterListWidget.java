@@ -40,16 +40,8 @@ public class CharacterListWidget extends LinearLayout {
 		
 		Character character;
 		
-		if ( characterID != 0L )
-		{
-			character = CharacterController.getInstance(appContext).getCharacterByID( characterID );
-		}
-		else //delete if real data is available
-		{
-			character = new Character();
-			character.updateValues( "DebugName", "DebugDescription", 0L , db );
-		}
-		
+		character = CharacterController.getInstance(appContext).getCharacterByID( characterID );
+	
 		/* define the graphic */
 		
 		ImageView colorSpace = new ImageView(context);
