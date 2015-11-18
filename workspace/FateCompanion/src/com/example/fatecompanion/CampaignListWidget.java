@@ -37,15 +37,7 @@ public class CampaignListWidget extends LinearLayout {
 		
 		Campaign campaign;
 		
-		if ( campaignID != 0L )
-		{
-			campaign = CampaignController.getInstance().getCampaignByID( campaignID );
-		}
-		else //delete if real data is available
-		{
-			campaign = new Campaign();
-			campaign.updateValues( "DebugName", "DebugDescription", RPGSystem.FateCore, 0L, 0L );
-		}
+		campaign = CampaignController.getInstance().getCampaignByID( campaignID );
 		
 		ImageView colorSpace = new ImageView(context);
 		
