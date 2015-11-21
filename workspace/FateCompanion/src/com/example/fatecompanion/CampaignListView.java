@@ -47,8 +47,20 @@ public class CampaignListView extends Activity {
         
         for ( Long ID : campaignIDs )
         {
-        	CampaignListWidget temp = new CampaignListWidget( this, ID );
-			temp.setClickable( true );		
+        	CampaignListWidget temp_widget = new CampaignListWidget( this, ID );
+        	
+        	Campaign temp_camp = CampaignController.getInstance().getCampaignByID( ID );
+        	
+        	temp_widget.setTitle( temp_camp.getName() );
+        	temp_widget.addInfo( temp_camp.getDescription() );
+        	temp_widget.addInfo( temp_camp.getSystem().toString() );
+        	if ( temp_camp.getLastPlayed().getTime() == 0L )
+        		temp_widget.addInfo( "Not in play" );
+        	else
+        		temp_widget.addInfo( temp_camp.getLastPlayed().toString() );
+        	temp_widget.setRandomColor( ID );
+
+			temp_widget.setClickable( true );		
 			
 			OnClickListener click = new OnClickListener() {
 				
@@ -58,10 +70,10 @@ public class CampaignListView extends Activity {
 				}
 			};
 			
-			temp.setOnClickListener( click );
+			temp_widget.setOnClickListener( click );
 			
 			( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) )
-				.addView( temp );
+				.addView( temp_widget );
 			
 			Space separator = new Space(this);
 			

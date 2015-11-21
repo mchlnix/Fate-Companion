@@ -37,8 +37,18 @@ public class CharacterListView extends Activity {
 		
 		for ( Long ID : characterIDs )
 		{
-			CharacterListWidget temp = new CharacterListWidget( this, ID, getApplicationContext() );
-			temp.setClickable( true );		
+			CharacterListWidget temp_widget = new CharacterListWidget( this, ID );
+        	
+        	Character temp_char = CharacterController.getInstance(this).getCharacterByID( ID );
+        	
+        	temp_widget.setTitle( temp_char.getName() );
+        	temp_widget.addInfo( temp_char.getDescription() );
+        	if ( CharacterController.getInstance(this).getLastPlayed( ID ).getTime() == 0L )
+        		temp_widget.addInfo( "Not in play" );
+        	else
+        		temp_widget.addInfo( CharacterController.getInstance(this).getLastPlayed( ID ).toString() );
+        	temp_widget.setRandomColor( ID );
+			temp_widget.setClickable( true );		
 			
 			OnClickListener click = new OnClickListener() {
 				
@@ -48,10 +58,10 @@ public class CharacterListView extends Activity {
 				}
 			};
 			
-			temp.setOnClickListener( click );
+			temp_widget.setOnClickListener( click );
 			
 			( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) )
-				.addView( temp );
+				.addView( temp_widget );
 		}
 		
 		/* Add character create button */
