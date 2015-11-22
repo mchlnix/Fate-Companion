@@ -17,14 +17,15 @@ public class CampaignCreateView extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_campaign_create_view);
+		this.characterID = this.getIntent().getLongExtra( "characterID", 0L );
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.campaign_create_view, menu);
+		/*getMenuInflater().inflate(R.menu.campaign_create_view, menu);
 		
-		this.characterID = this.getIntent().getLongExtra( "characterID", 0L );
+		this.characterID = this.getIntent().getLongExtra( "characterID", 0L );*/
 		
 		return true;
 	}
