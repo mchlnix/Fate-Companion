@@ -3,6 +3,8 @@ package com.example.fatecompanion;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import com.example.fatecompanion.DatabaseContract.*;
+//imports CharacterEntry and CampaignEntry
 
 public class DbHelper extends SQLiteOpenHelper {
 	
@@ -22,10 +24,10 @@ public class DbHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		//
-		String createCharacterTable = "CREATE TABLE " + DatabaseContract.CharacterEntry.TABLE_NAME + " (" + DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID + " INTEGER PRIMARY KEY," + DatabaseContract.CharacterEntry.COLUMN_NAME_NAME + " TEXT," + DatabaseContract.CharacterEntry.COLUMN_NAME_DESCRIPTION + " TEXT" + " )";
+		String createCharacterTable = "CREATE TABLE " + CharacterEntry.TABLE_NAME + " (" + CharacterEntry.COLUMN_NAME_CHARACTER_ID + " INTEGER PRIMARY KEY," + CharacterEntry.COLUMN_NAME_NAME + " TEXT," + CharacterEntry.COLUMN_NAME_DESCRIPTION + " TEXT" + " )";
 		db.execSQL(createCharacterTable);
 		
-		String createCampaignTable =  "CREATE TABLE " + DatabaseContract.CampaignEntry.TABLE_NAME + " (" + DatabaseContract.CampaignEntry.COLUMN_NAME_CAMPAIGN_ID + " Integer PRIMARY KEY," + DatabaseContract.CampaignEntry.COLUMN_NAME_NAME + " TEXT," + DatabaseContract.CampaignEntry.COLUMN_NAME_DESCRIPTION + " TEXT," + DatabaseContract.CampaignEntry.COLUMN_NAME_SYSTEM + " TEXT," + DatabaseContract.CampaignEntry.COLUMN_NAME_LAST_PLAYED + " DATE, FOREIGN KEY(" + DatabaseContract.CampaignEntry.COLUMN_NAME_CHARACTER + ") references " + DatabaseContract.CharacterEntry.TABLE_NAME + "(" + DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID + "))";
+		String createCampaignTable =  "CREATE TABLE " + CampaignEntry.TABLE_NAME + " (" + CampaignEntry.COLUMN_NAME_CAMPAIGN_ID + " Integer PRIMARY KEY," + CampaignEntry.COLUMN_NAME_NAME + " TEXT," + CampaignEntry.COLUMN_NAME_DESCRIPTION + " TEXT," + CampaignEntry.COLUMN_NAME_SYSTEM + " TEXT," + CampaignEntry.COLUMN_NAME_LAST_PLAYED + " DATE, FOREIGN KEY(" + CampaignEntry.COLUMN_NAME_CHARACTER + ") references " + CharacterEntry.TABLE_NAME + "(" + CharacterEntry.COLUMN_NAME_CHARACTER_ID + "))";
 		db.execSQL(createCampaignTable);
 	}
 
