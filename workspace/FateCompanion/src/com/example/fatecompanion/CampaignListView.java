@@ -49,7 +49,7 @@ public class CampaignListView extends Activity {
         {
         	CampaignListWidget temp_widget = new CampaignListWidget( this, ID );
         	
-        	Campaign temp_camp = CampaignController.getInstance().getCampaignByID( ID );
+        	Campaign temp_camp = CampaignController.getInstance(getApplicationContext()).getCampaignByID( ID );
         	
         	temp_widget.setTitle( temp_camp.getName() );
         	temp_widget.addInfo( temp_camp.getDescription() );

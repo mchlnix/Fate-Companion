@@ -63,7 +63,7 @@ public class CampaignCreateView extends Activity {
 			return;
 		}
 		
-		if ( ! CampaignController.getInstance().saveCampaign( campaignID, 
+		if ( ! CampaignController.getInstance(getApplicationContext()).saveCampaign( campaignID, 
 															  this.characterID, 
 															  name, 
 															  description, 

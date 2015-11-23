@@ -3,15 +3,27 @@ package com.example.fatecompanion;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
 public class CampaignController {
 	
 	private static CampaignController instance = null;
 	
 	private HashMap<Long, Campaign> campaignCache;
 	
-	private CampaignController()
+	private Context appContext;
+	
+	private DbHelper dbHelper;
+	
+	private SQLiteDatabase database;
+	
+	private CampaignController(Context applicationContext)
 	{
 		// Get every campaignID from the DB, then populate the cache
+		this.appContext = applicationContext;
+		this.dbHelper = new DbHelper(this.appContext);
+		this.database = this.dbHelper.getWritableDatabase();
 		
 		this.campaignCache = new HashMap<Long, Campaign>();
 		
@@ -36,13 +48,13 @@ public class CampaignController {
 		}
 	}
 	
-	public static synchronized CampaignController getInstance()
+	public static synchronized CampaignController getInstance(Context applicationContext)
 	{
 		// synchronized, because of wikipedia
 		
 		if ( instance == null )
 		{
-			instance = new CampaignController();
+			instance = new CampaignController(applicationContext);
 		}
 		
 		return instance;

@@ -146,7 +146,7 @@ public class CharacterController {
 		
 		for ( Long campaignID : list )
 		{
-			Date temp = CampaignController.getInstance().getCampaignByID( campaignID ).getLastPlayed();
+			Date temp = CampaignController.getInstance(appContext).getCampaignByID( campaignID ).getLastPlayed();
 			
 			if ( temp.after( date ) )
 				date = temp;
