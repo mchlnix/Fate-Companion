@@ -7,6 +7,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.fatecompanion.DatabaseContract.*;
+
 
 public class Character {
 	
@@ -65,19 +67,19 @@ public class Character {
 	//loads a specified character out of the DB and sets the properties
 	public boolean loadFromDB( Long characterID , SQLiteDatabase database )
 	{
-		String[] projection = {DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID, DatabaseContract.CharacterEntry.COLUMN_NAME_NAME, DatabaseContract.CharacterEntry.COLUMN_NAME_DESCRIPTION};
-		String selection = DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID + " = " + characterID.toString();
+		String[] projection = {CharacterEntry.COLUMN_NAME_CHARACTER_ID, CharacterEntry.COLUMN_NAME_NAME, CharacterEntry.COLUMN_NAME_DESCRIPTION};
+		String selection = CharacterEntry.COLUMN_NAME_CHARACTER_ID + " = " + characterID.toString();
 		
-		Cursor c = database.query(DatabaseContract.CharacterEntry.TABLE_NAME, projection, selection, null, null, null, null);
+		Cursor c = database.query(CharacterEntry.TABLE_NAME, projection, selection, null, null, null, null);
 		
 		c.moveToFirst();
-		this.id = c.getLong( c.getColumnIndex( DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID ) );
-		this.name = c.getString( c.getColumnIndex( DatabaseContract.CharacterEntry.COLUMN_NAME_NAME ) );
-		this.description = c.getString( c.getColumnIndex( DatabaseContract.CharacterEntry.COLUMN_NAME_DESCRIPTION ) );
+		this.id = c.getLong( c.getColumnIndex( CharacterEntry.COLUMN_NAME_CHARACTER_ID ) );
+		this.name = c.getString( c.getColumnIndex( CharacterEntry.COLUMN_NAME_NAME ) );
+		this.description = c.getString( c.getColumnIndex( CharacterEntry.COLUMN_NAME_DESCRIPTION ) );
 		
-		if (this.id.equals( c.getLong( c.getColumnIndex( DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID ) ) )
-				&& this.name.equals( c.getString( c.getColumnIndex( DatabaseContract.CharacterEntry.COLUMN_NAME_NAME ) ) )
-				&& this.description.equals( c.getString( c.getColumnIndex( DatabaseContract.CharacterEntry.COLUMN_NAME_DESCRIPTION ) ) ) )
+		if (this.id.equals( c.getLong( c.getColumnIndex( CharacterEntry.COLUMN_NAME_CHARACTER_ID ) ) )
+				&& this.name.equals( c.getString( c.getColumnIndex( CharacterEntry.COLUMN_NAME_NAME ) ) )
+				&& this.description.equals( c.getString( c.getColumnIndex( CharacterEntry.COLUMN_NAME_DESCRIPTION ) ) ) )
 		{
 			c.close();
 			return true;
@@ -102,11 +104,11 @@ public class Character {
 		}
 		
 		ContentValues values = new ContentValues();
-		values.put( DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID, getID() );
-		values.put( DatabaseContract.CharacterEntry.COLUMN_NAME_NAME, getName() );
-		values.put( DatabaseContract.CharacterEntry.COLUMN_NAME_DESCRIPTION, getDescription() );
+		values.put( CharacterEntry.COLUMN_NAME_CHARACTER_ID, getID() );
+		values.put( CharacterEntry.COLUMN_NAME_NAME, getName() );
+		values.put( CharacterEntry.COLUMN_NAME_DESCRIPTION, getDescription() );
 		
-		if ( database.insert( DatabaseContract.CharacterEntry.TABLE_NAME, null, values) != -1)
+		if ( database.insert( CharacterEntry.TABLE_NAME, null, values) != -1)
 		{	
 			return true;
 		}
