@@ -24,10 +24,26 @@ public class DbHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		//
-		String createCharacterTable = "CREATE TABLE " + CharacterEntry.TABLE_NAME + " (" + CharacterEntry.COLUMN_NAME_CHARACTER_ID + " INTEGER PRIMARY KEY," + CharacterEntry.COLUMN_NAME_NAME + " TEXT," + CharacterEntry.COLUMN_NAME_DESCRIPTION + " TEXT" + " )";
+		String createCharacterTable = 
+				"CREATE TABLE " + CharacterEntry.TABLE_NAME 
+				+ " (" 
+				+ CharacterEntry.COLUMN_NAME_CHARACTER_ID + " INTEGER PRIMARY KEY," 
+				+ CharacterEntry.COLUMN_NAME_NAME + " TEXT," 
+				+ CharacterEntry.COLUMN_NAME_DESCRIPTION + " TEXT" 
+				+ " )";
 		db.execSQL(createCharacterTable);
 		
-		String createCampaignTable =  "CREATE TABLE " + CampaignEntry.TABLE_NAME + " (" + CampaignEntry.COLUMN_NAME_CAMPAIGN_ID + " INTEGER PRIMARY KEY," + CampaignEntry.COLUMN_NAME_NAME + " TEXT," + CampaignEntry.COLUMN_NAME_DESCRIPTION + " TEXT," + CampaignEntry.COLUMN_NAME_SYSTEM + " TEXT," + CampaignEntry.COLUMN_NAME_LAST_PLAYED + " INTEGER, " + CampaignEntry.COLUMN_NAME_CHARACTER + "INTEGER references " + CharacterEntry.TABLE_NAME + "(" + CharacterEntry.COLUMN_NAME_CHARACTER_ID + "))";
+		String createCampaignTable =  
+				"CREATE TABLE " + CampaignEntry.TABLE_NAME 
+				+ " (" 
+				+ CampaignEntry.COLUMN_NAME_CAMPAIGN_ID + " INTEGER PRIMARY KEY," 
+				+ CampaignEntry.COLUMN_NAME_NAME + " TEXT," 
+				+ CampaignEntry.COLUMN_NAME_DESCRIPTION + " TEXT," 
+				+ CampaignEntry.COLUMN_NAME_SYSTEM + " TEXT," 
+				+ CampaignEntry.COLUMN_NAME_LAST_PLAYED + " INTEGER, " 
+				+ CampaignEntry.COLUMN_NAME_CHARACTER + " INTEGER references " 
+				+ CharacterEntry.TABLE_NAME + "(" + CharacterEntry.COLUMN_NAME_CHARACTER_ID + ")" 
+				+ ")";
 		db.execSQL(createCampaignTable);
 	}
 

@@ -2,6 +2,11 @@ package com.example.fatecompanion;
 
 import java.util.Date;
 
+import com.example.fatecompanion.DatabaseContract.CampaignEntry;
+
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
+
 public class Campaign {
 
 	private Long id;
@@ -24,7 +29,7 @@ public class Campaign {
 		this.character = 1L;
 	}
 	
-	public boolean updateValues( String name, String description, RPGSystem system, Long characterID, Long campaignID )
+	public boolean updateValues( String name, String description, RPGSystem system, Long characterID, Long campaignID, SQLiteDatabase database )
 	{
 		this.id = campaignID;
 		this.name = name;
@@ -34,17 +39,17 @@ public class Campaign {
 		this.lastPlayed = new Date();
 		this.character = characterID;
 		
-		return this.saveToDB();
+		return this.saveToDB( database );
 	}
 	
-	public boolean updateLastPlayed()
+	public boolean updateLastPlayed( SQLiteDatabase database )
 	{
 		this.lastPlayed = new Date();
 		
-		return this.saveToDB();
+		return this.saveToDB( database );
 	}
 	
-	public boolean loadFromDB( Long campaignID )
+	public boolean loadFromDB( Long campaignID, SQLiteDatabase database )
 	{
 		// TODO: load from DB using the parameter ID
 		// and set the properties
@@ -52,12 +57,22 @@ public class Campaign {
 		return false;
 	}
 	
-	private boolean saveToDB()
+	private boolean saveToDB(SQLiteDatabase database)
 	{
-		/*
-		 * TODO: save to DB
-		 */
+		ContentValues values = new ContentValues();
+		values.put( CampaignEntry.COLUMN_NAME_CAMPAIGN_ID, getId() );
+		values.put( CampaignEntry.COLUMN_NAME_NAME, getName() );
+		values.put( CampaignEntry.COLUMN_NAME_DESCRIPTION, getDescription() );
+		values.put( CampaignEntry.COLUMN_NAME_SYSTEM, getSystem().name() );
+		values.put( CampaignEntry.COLUMN_NAME_LAST_PLAYED, getLastPlayed().getTime() );
+		values.put( CampaignEntry.COLUMN_NAME_CHARACTER, getCharacter() );
 		
+		if(database.insert(CampaignEntry.TABLE_NAME, null, values) != -1 )
+		{
+			return true;
+		}
+		
+		//TODO database can't save?
 		return false;
 	}
 

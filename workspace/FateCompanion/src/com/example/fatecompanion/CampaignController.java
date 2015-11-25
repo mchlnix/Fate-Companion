@@ -3,8 +3,12 @@ package com.example.fatecompanion;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.example.fatecompanion.DatabaseContract.CampaignEntry;
+
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 public class CampaignController {
 	
@@ -20,30 +24,25 @@ public class CampaignController {
 	
 	private CampaignController(Context applicationContext)
 	{
-		// Get every campaignID from the DB, then populate the cache
 		this.appContext = applicationContext;
 		this.dbHelper = new DbHelper(this.appContext);
 		this.database = this.dbHelper.getWritableDatabase();
 		
 		this.campaignCache = new HashMap<Long, Campaign>();
+	
+		//load all campaignIDs from the DB
+		ArrayList<Long> campaignIDs = loadCampaignIDs();
 		
-		ArrayList<Long> campaignIDs = new ArrayList<Long>();
-		
-		/*
-		 * TODO: load campaignIDs from DB and save them into `campaignIDs`
-		 */
-		
+		//populate Cache
 		for ( Long campaignID : campaignIDs)
 		{
 			Campaign newCampaign = new Campaign();
 			
-			if ( newCampaign.loadFromDB( campaignID ) )
+			if ( newCampaign.loadFromDB( campaignID, database ) )
 				this.campaignCache.put( campaignID, newCampaign );
 			else
 			{
-				/*
-				 * TODO: Error handling. 
-				 */
+				Toast.makeText(appContext, "Campaign with ID " + Long.toString(campaignID) + " could not be loaded.", Toast.LENGTH_SHORT).show();
 			}
 		}
 	}
@@ -72,7 +71,7 @@ public class CampaignController {
 			
 			Campaign newCampaign = new Campaign();
 			
-			if ( newCampaign.loadFromDB( campaignID ) )
+			if ( newCampaign.loadFromDB( campaignID, database ) )
 				this.campaignCache.put( campaignID, newCampaign );
 			else
 			{
@@ -108,22 +107,33 @@ public class CampaignController {
 		if ( ! this.campaignCache.containsKey( campaignID ) )
 		{
 			Campaign newCampaign = new Campaign();
-			
-			if ( newCampaign.loadFromDB( campaignID ) )
-				this.campaignCache.put( campaignID, newCampaign );
-			else
-			{
-				/*
-				 * TODO: Error handling.
-				 */
-				this.campaignCache.put( campaignID, newCampaign );
-			}
+			this.campaignCache.put( campaignID, newCampaign );
 		}
-		return this.campaignCache.get( campaignID ).updateValues(name, description, system, characterID, campaignID);
+		
+		return this.campaignCache.get( campaignID ).updateValues(name, description, system, characterID, campaignID, database);
 	}
 	
 	public boolean playCampaign( Long campaignID )
 	{
-		return this.getCampaignByID( campaignID ).updateLastPlayed();
+		return this.getCampaignByID( campaignID ).updateLastPlayed( database );
+	}
+	
+	private ArrayList<Long> loadCampaignIDs()
+	{
+		ArrayList<Long> campaignIDs = new ArrayList<Long>();
+		
+		//queries every campaignID into a cursor
+		String[] projection = {CampaignEntry.COLUMN_NAME_CAMPAIGN_ID};
+		Cursor c = this.database.query(CampaignEntry.TABLE_NAME, projection, null, null, null, null, null);
+			
+		//iterate over cursor and populate campaignIDs
+		while ( c.moveToNext() )
+		{
+			campaignIDs.add( c.getLong ( c.getColumnIndex( CampaignEntry.COLUMN_NAME_CAMPAIGN_ID ) ) );
+		}
+						
+		c.close();
+				
+		return campaignIDs;
 	}
 }
