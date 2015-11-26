@@ -31,7 +31,7 @@ public class CampaignController {
 		this.campaignCache = new HashMap<Long, Campaign>();
 	
 		//load all campaignIDs from the DB
-		ArrayList<Long> campaignIDs = loadCampaignIDs();
+		ArrayList<Long> campaignIDs = FateDBUtils.loadCampaignIDs(database);
 		
 		//populate Cache
 		for ( Long campaignID : campaignIDs)
@@ -116,24 +116,5 @@ public class CampaignController {
 	public boolean playCampaign( Long campaignID )
 	{
 		return this.getCampaignByID( campaignID ).updateLastPlayed( database );
-	}
-	
-	private ArrayList<Long> loadCampaignIDs()
-	{
-		ArrayList<Long> campaignIDs = new ArrayList<Long>();
-		
-		//queries every campaignID into a cursor
-		String[] projection = {CampaignEntry.COLUMN_NAME_CAMPAIGN_ID};
-		Cursor c = this.database.query(CampaignEntry.TABLE_NAME, projection, null, null, null, null, null);
-			
-		//iterate over cursor and populate campaignIDs
-		while ( c.moveToNext() )
-		{
-			campaignIDs.add( c.getLong ( c.getColumnIndex( CampaignEntry.COLUMN_NAME_CAMPAIGN_ID ) ) );
-		}
-						
-		c.close();
-				
-		return campaignIDs;
 	}
 }

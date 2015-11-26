@@ -1,8 +1,10 @@
 package com.example.fatecompanion;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.example.fatecompanion.DatabaseContract.CampaignEntry;
+import com.example.fatecompanion.DatabaseContract.CharacterEntry;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
@@ -60,23 +62,32 @@ public class Campaign {
 	private boolean saveToDB(SQLiteDatabase database)
 	{
 		ContentValues values = new ContentValues();
-		values.put( CampaignEntry.COLUMN_NAME_CAMPAIGN_ID, getId() );
+		values.put( CampaignEntry.COLUMN_NAME_CAMPAIGN_ID, getID() );
 		values.put( CampaignEntry.COLUMN_NAME_NAME, getName() );
 		values.put( CampaignEntry.COLUMN_NAME_DESCRIPTION, getDescription() );
 		values.put( CampaignEntry.COLUMN_NAME_SYSTEM, getSystem().name() );
 		values.put( CampaignEntry.COLUMN_NAME_LAST_PLAYED, getLastPlayed().getTime() );
 		values.put( CampaignEntry.COLUMN_NAME_CHARACTER, getCharacter() );
 		
-		if(database.insert(CampaignEntry.TABLE_NAME, null, values) != -1 )
+		//Check whether characterID is already in the DB (update) or needs to be added (insert)
+		ArrayList<Long> checklist = FateDBUtils.loadCampaignIDs(database);
+		if ( checklist.contains( getID() ) )
 		{
+			database.update(CampaignEntry.TABLE_NAME, values, null, null);
 			return true;
+		} else
+		{
+			if ( database.insert( CampaignEntry.TABLE_NAME, null, values) != -1)
+			{	
+				return true;
+			}
 		}
 		
 		//TODO database can't save?
 		return false;
 	}
 
-	public Long getId() {
+	public Long getID() {
 		return id;
 	}
 	
