@@ -108,9 +108,18 @@ public class Character {
 		values.put( CharacterEntry.COLUMN_NAME_NAME, getName() );
 		values.put( CharacterEntry.COLUMN_NAME_DESCRIPTION, getDescription() );
 		
-		if ( database.insert( CharacterEntry.TABLE_NAME, null, values) != -1)
-		{	
+		//Check whether characterID is already in the DB (update) or needs to be added (insert)
+		ArrayList<Long> checklist = FateDBUtils.loadCharacterIDs(database);
+		if ( checklist.contains( getID() ) )
+		{
+			database.update(CharacterEntry.TABLE_NAME, values, null, null);
 			return true;
+		} else
+		{
+			if ( database.insert( CharacterEntry.TABLE_NAME, null, values) != -1)
+			{	
+				return true;
+			}
 		}
 		
 		//TODO can't save? Error Handling

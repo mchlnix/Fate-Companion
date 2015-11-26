@@ -33,7 +33,7 @@ public class CharacterController {
 		
 		
 		// Get every characterID from the DB
-		ArrayList<Long> characterIDs = loadCharacterIDs();
+		ArrayList<Long> characterIDs = FateDBUtils.loadCharacterIDs(database);
 		
 		//populate characterCache
 		for ( Long characterID : characterIDs)
@@ -75,7 +75,7 @@ public class CharacterController {
 		if ( ! this.characterCache.containsKey( characterID ) )
 		{	
 			//load all characterIDs and check database for the specific ID
-			ArrayList<Long> characterIDs = loadCharacterIDs();
+			ArrayList<Long> characterIDs = FateDBUtils.loadCharacterIDs(database);
 			
 			if ( ! characterIDs.contains( characterID ) )
 			{
@@ -154,26 +154,4 @@ public class CharacterController {
 		
 		return date;
 	}
-	
-	//loads every characterID from the database and returns them in an ArrayList
-	private ArrayList<Long> loadCharacterIDs( )
-	{
-		ArrayList<Long> characterIDs = new ArrayList<Long>();
-		
-		//queries every character_id into a cursor
-		String[] projection = {DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID};
-		Cursor c = this.database.query(DatabaseContract.CharacterEntry.TABLE_NAME, projection, null, null, null, null, null);
-				
-		//iterate over cursor and populate characterIDs
-		while ( c.moveToNext() )
-		{
-			characterIDs.add( c.getLong ( c.getColumnIndex( DatabaseContract.CharacterEntry.COLUMN_NAME_CHARACTER_ID ) ) );
-		}
-				
-		Toast.makeText(appContext, "List: Complete", Toast.LENGTH_LONG).show();
-		c.close();
-		
-		return characterIDs;
-	}
-	
 }
