@@ -3,11 +3,10 @@ package com.example.fatecompanion;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.example.fatecompanion.DatabaseContract.CampaignEntry;
-import com.example.fatecompanion.DatabaseContract.CharacterEntry;
-
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.fatecompanion.DatabaseContract.CampaignEntry;
 
 public class Campaign {
 

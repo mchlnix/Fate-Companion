@@ -3,10 +3,7 @@ package com.example.fatecompanion;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.example.fatecompanion.DatabaseContract.CampaignEntry;
-
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 

@@ -3,7 +3,9 @@ package com.example.fatecompanion;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.example.fatecompanion.DatabaseContract.*;
+
+import com.example.fatecompanion.DatabaseContract.CampaignEntry;
+import com.example.fatecompanion.DatabaseContract.CharacterEntry;
 //imports CharacterEntry and CampaignEntry
 
 public class DbHelper extends SQLiteOpenHelper {
