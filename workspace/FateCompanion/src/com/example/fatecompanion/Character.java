@@ -112,7 +112,7 @@ public class Character {
 		ArrayList<Long> checklist = FateDBUtils.loadCharacterIDs(database);
 		if ( checklist.contains( getID() ) )
 		{
-			database.update(CharacterEntry.TABLE_NAME, values, null, null);
+			database.update(CharacterEntry.TABLE_NAME, values, CharacterEntry.COLUMN_CHARACTER_ID + " = " + getID().toString(), null);
 			return true;
 		} else
 		{
