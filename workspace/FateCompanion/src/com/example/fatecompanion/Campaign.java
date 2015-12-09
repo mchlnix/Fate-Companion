@@ -62,12 +62,12 @@ public class Campaign {
 	private boolean saveToDB(SQLiteDatabase database)
 	{
 		ContentValues values = new ContentValues();
-		values.put( CampaignEntry.COLUMN_NAME_CAMPAIGN_ID, getID() );
-		values.put( CampaignEntry.COLUMN_NAME_NAME, getName() );
-		values.put( CampaignEntry.COLUMN_NAME_DESCRIPTION, getDescription() );
-		values.put( CampaignEntry.COLUMN_NAME_SYSTEM, getSystem().name() );
-		values.put( CampaignEntry.COLUMN_NAME_LAST_PLAYED, getLastPlayed().getTime() );
-		values.put( CampaignEntry.COLUMN_NAME_CHARACTER, getCharacter() );
+		values.put( CampaignEntry.COLUMN_CAMPAIGN_ID, getID() );
+		values.put( CampaignEntry.COLUMN_NAME, getName() );
+		values.put( CampaignEntry.COLUMN_DESCRIPTION, getDescription() );
+		values.put( CampaignEntry.COLUMN_SYSTEM, getSystem().name() );
+		values.put( CampaignEntry.COLUMN_LAST_PLAYED, getLastPlayed().getTime() );
+		values.put( CampaignEntry.COLUMN_CHARACTER, getCharacter() );
 		
 		//Check whether characterID is already in the DB (update) or needs to be added (insert)
 		ArrayList<Long> checklist = FateDBUtils.loadCampaignIDs(database);
