@@ -3,7 +3,9 @@ package com.example.fatecompanion;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.example.fatecompanion.DatabaseContract.*;
+
+import com.example.fatecompanion.DatabaseContract.CampaignEntry;
+import com.example.fatecompanion.DatabaseContract.CharacterEntry;
 //imports CharacterEntry and CampaignEntry
 
 public class DbHelper extends SQLiteOpenHelper {
@@ -27,22 +29,22 @@ public class DbHelper extends SQLiteOpenHelper {
 		String createCharacterTable = 
 				"CREATE TABLE " + CharacterEntry.TABLE_NAME 
 				+ " (" 
-				+ CharacterEntry.COLUMN_NAME_CHARACTER_ID + " INTEGER PRIMARY KEY," 
-				+ CharacterEntry.COLUMN_NAME_NAME + " TEXT," 
-				+ CharacterEntry.COLUMN_NAME_DESCRIPTION + " TEXT" 
+				+ CharacterEntry.COLUMN_CHARACTER_ID + " INTEGER PRIMARY KEY," 
+				+ CharacterEntry.COLUMN_NAME + " TEXT," 
+				+ CharacterEntry.COLUMN_DESCRIPTION + " TEXT" 
 				+ " )";
 		db.execSQL(createCharacterTable);
 		
 		String createCampaignTable =  
 				"CREATE TABLE " + CampaignEntry.TABLE_NAME 
 				+ " (" 
-				+ CampaignEntry.COLUMN_NAME_CAMPAIGN_ID + " INTEGER PRIMARY KEY," 
-				+ CampaignEntry.COLUMN_NAME_NAME + " TEXT," 
-				+ CampaignEntry.COLUMN_NAME_DESCRIPTION + " TEXT," 
-				+ CampaignEntry.COLUMN_NAME_SYSTEM + " TEXT," 
-				+ CampaignEntry.COLUMN_NAME_LAST_PLAYED + " INTEGER, " 
-				+ CampaignEntry.COLUMN_NAME_CHARACTER + " INTEGER references " 
-				+ CharacterEntry.TABLE_NAME + "(" + CharacterEntry.COLUMN_NAME_CHARACTER_ID + ")" 
+				+ CampaignEntry.COLUMN_CAMPAIGN_ID + " INTEGER PRIMARY KEY," 
+				+ CampaignEntry.COLUMN_NAME + " TEXT," 
+				+ CampaignEntry.COLUMN_DESCRIPTION + " TEXT," 
+				+ CampaignEntry.COLUMN_SYSTEM + " TEXT," 
+				+ CampaignEntry.COLUMN_LAST_PLAYED + " INTEGER, " 
+				+ CampaignEntry.COLUMN_CHARACTER + " INTEGER references " 
+				+ CharacterEntry.TABLE_NAME + "(" + CharacterEntry.COLUMN_CHARACTER_ID + ")" 
 				+ ")";
 		db.execSQL(createCampaignTable);
 	}
