@@ -7,6 +7,7 @@ import com.example.fatecompanion.DatabaseContract.CampaignEntry;
 import com.example.fatecompanion.DatabaseContract.CharacterEntry;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.fatecompanion.DatabaseContract.CampaignEntry;
@@ -55,10 +56,52 @@ public class Campaign {
 	
 	public boolean loadFromDB( Long campaignID, SQLiteDatabase database )
 	{
-		// TODO: load from DB using the parameter ID
-		// and set the properties
+		String[] projection = {
+				CampaignEntry.COLUMN_CAMPAIGN_ID, 
+				CampaignEntry.COLUMN_NAME, 
+				CampaignEntry.COLUMN_DESCRIPTION, 
+				CampaignEntry.COLUMN_SYSTEM, 
+				CampaignEntry.COLUMN_LAST_PLAYED, 
+				CampaignEntry.COLUMN_CHARACTER};
+		String selection = CampaignEntry.COLUMN_CAMPAIGN_ID + " = " + campaignID.toString();
 		
-		return false;
+		Cursor c = database.query(CampaignEntry.TABLE_NAME, projection, selection, null, null, null, null);
+		
+		c.moveToFirst();
+		this.id 		= c.getLong( c.getColumnIndex( CampaignEntry.COLUMN_CAMPAIGN_ID ) );
+		this.name 		= c.getString( c.getColumnIndex( CampaignEntry.COLUMN_NAME ) );
+		this.description= c.getString( c.getColumnIndex( CampaignEntry.COLUMN_DESCRIPTION ) );
+		
+		String tempSystem = c.getString( c.getColumnIndex( CampaignEntry.COLUMN_SYSTEM ) );
+		if ( tempSystem.equals( RPGSystem.FateAccelerated.name() ) )
+		{
+			this.system = RPGSystem.FateAccelerated;
+		} else if ( tempSystem.equals( RPGSystem.FateCore.name() ) )
+		{
+			this.system = RPGSystem.FateCore;
+		} else if ( tempSystem.equals( RPGSystem.AtomicRobo.name() ) )
+		{
+			this.system = RPGSystem.AtomicRobo;
+		}
+		
+		this.lastPlayed	= new Date( c.getLong( c.getColumnIndex( CampaignEntry.COLUMN_LAST_PLAYED ) ) );
+		this.character	= c.getLong( c.getColumnIndex( CampaignEntry.COLUMN_CHARACTER ) );
+		
+		Long tempLastPlayed = this.lastPlayed.getTime();
+		if (this.id.equals(c.getLong( c.getColumnIndex( CampaignEntry.COLUMN_CAMPAIGN_ID ) ) ) 
+				&& this.name.equals( c.getString( c.getColumnIndex( CampaignEntry.COLUMN_NAME ) ) )
+				&& this.description.equals( c.getString( c.getColumnIndex( CampaignEntry.COLUMN_DESCRIPTION ) ) )
+				&& this.system.name().equals( c.getString( c.getColumnIndex( CampaignEntry.COLUMN_SYSTEM ) ) )
+				&& this.character.equals( c.getLong( c.getColumnIndex( CampaignEntry.COLUMN_CHARACTER ) ) )
+				&& tempLastPlayed.equals( c.getLong( c.getColumnIndex( CampaignEntry.COLUMN_LAST_PLAYED ) ) )
+				)
+		{
+			c.close();
+			return true;
+		}
+		
+		c.close();
+		return false;		
 	}
 	
 	private boolean saveToDB(SQLiteDatabase database)
@@ -76,7 +119,7 @@ public class Campaign {
 		ArrayList<Long> checklist = FateDBUtils.loadCampaignIDs(database);
 		if ( checklist.contains( getID() ) )
 		{
-			database.update(CampaignEntry.TABLE_NAME, values, null, null);
+			database.update(CampaignEntry.TABLE_NAME, values, CampaignEntry.COLUMN_CAMPAIGN_ID + " = " + getID().toString(), null);
 			return true;
 		} else
 		{
@@ -86,7 +129,6 @@ public class Campaign {
 			}
 		}
 		
-		//TODO database can't save?
 		return false;
 	}
 

@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
+import com.example.fatecompanion.DatabaseContract.CampaignEntry;
+
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
@@ -102,10 +105,27 @@ public class CharacterController {
 		return this.characterCache.get( characterID );
 	}
 	
-	//TODO same safety as getCharacterByID()
 	public ArrayList<Long> getCampaignIDsByCharacterID( Long characterID )
 	{
-		return this.characterCache.get( characterID ).getCampaigns();
+		ArrayList<Long> campaignIDs = new ArrayList<Long>();
+		
+		//queries every campaignID into a cursor
+		String[] projection = {CampaignEntry.COLUMN_CAMPAIGN_ID};
+		
+		//where clause
+		String where = CampaignEntry.COLUMN_CHARACTER + " = " + characterID.toString();
+
+		Cursor c = database.query( CampaignEntry.TABLE_NAME, projection, where, null, null, null, null );
+			
+		//iterate over cursor and populate campaignIDs
+		while ( c.moveToNext() )
+		{
+			campaignIDs.add( c.getLong ( c.getColumnIndex( CampaignEntry.COLUMN_CAMPAIGN_ID ) ) );
+		}
+						
+		c.close();
+				
+		return campaignIDs;
 	}
 	
 	// This method makes or edits a character, depending on, 

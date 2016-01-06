@@ -56,31 +56,38 @@ public class CampaignController {
 		return instance;
 	}
 	
+	
 	public Campaign getCampaignByID( Long campaignID )
-	{
+	{	
 		if ( ! this.campaignCache.containsKey( campaignID ) )
-		{
-			// Shouldn't happen, since the characterCache should be complete
+		{	
+			//load all characterIDs and check database for the specific ID
+			ArrayList<Long> campaignIDs = FateDBUtils.loadCampaignIDs(database);
 			
-			/*
-			 * TODO: Error handling.
-			 */
-			
-			Campaign newCampaign = new Campaign();
-			
-			if ( newCampaign.loadFromDB( campaignID, database ) )
-				this.campaignCache.put( campaignID, newCampaign );
-			else
+			if ( ! campaignIDs.contains( campaignID ) )
 			{
-				/*
-				 * TODO: Error handling.
-				 */
+				//can't do anything, so User is advised to return to previous list
+				Toast.makeText(appContext, "Please return to previous list and try again.", Toast.LENGTH_LONG).show();
+				
+				return null;
+			} else
+			{
+				//reload the Cache, completely
+				for ( Long campID : campaignIDs)
+				{
+					Campaign newCamp = new Campaign();
+					
+					if ( newCamp.loadFromDB( campID , database ) )
+						this.campaignCache.put( campID, newCamp );
+					else
+					{
+						Toast.makeText(appContext, "Campaign with ID " + Long.toString(campID) + " could not be loaded.", Toast.LENGTH_SHORT).show();
+					}
+				}
 			}
-			
-			// if not successful, this function returns null
 		}
-		
-		return this.campaignCache.get( campaignID ); 
+			
+		return this.campaignCache.get( campaignID );
 	}
 	
 	public Boolean validateName( String name )
