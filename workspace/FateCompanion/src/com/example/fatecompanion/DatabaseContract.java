@@ -22,4 +22,20 @@ public final class DatabaseContract {
 		public static final String COLUMN_LAST_PLAYED = "campaignlastplayed";
 		public static final String COLUMN_CHARACTER = "campaigncharacter";
 	}
+	
+	//TODO: setup for database
+	public static abstract class CharacterSheetEntry {
+		public static final String TABLE_NAME = "CharacterSheet";
+		/*public static final String COLUMN_
+		public static final String COLUMN_
+		public static final String COLUMN_
+		public static final String COLUMN_
+		public static final String COLUMN_
+		public static final String COLUMN_
+		public static final String COLUMN_
+		public static final String COLUMN_
+		public static final String COLUMN_
+		public static final String COLUMN_
+		public static final String COLUMN_  */
+	}
 }

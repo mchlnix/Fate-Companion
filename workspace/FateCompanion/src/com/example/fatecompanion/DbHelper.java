@@ -6,7 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.fatecompanion.DatabaseContract.CampaignEntry;
 import com.example.fatecompanion.DatabaseContract.CharacterEntry;
-//imports CharacterEntry and CampaignEntry
+import com.example.fatecompanion.DatabaseContract.CharacterSheetEntry;
+//imports CharacterEntry, CampaignEntry and CharacterSheetEntry
 
 public class DbHelper extends SQLiteOpenHelper {
 	
@@ -47,6 +48,13 @@ public class DbHelper extends SQLiteOpenHelper {
 				+ CharacterEntry.TABLE_NAME + "(" + CharacterEntry.COLUMN_CHARACTER_ID + ")" 
 				+ ")";
 		db.execSQL(createCampaignTable);
+		
+		//TODO: Create Statement for CharacterSheet table
+		/*String createCharacterSheetTable =
+				"CREATE TABLE " + CharacterSheetEntry.TABLE_NAME
+				+ " ("
+				+ 
+				*/ 
 	}
 
 	@Override

@@ -19,7 +19,9 @@ public class CharacterSheetFateCore extends CharacterSheet {
 	
 	private String highConcept;
 	private String trouble;
-	private String[] aspects;
+	private String aspect1;
+	private String aspect2;
+	private String aspect3;
 	
 	private ArrayList<String> extras; // if there is a set limit of extras, turn into a String[]
 	private ArrayList<String> stunts; // if there is a set limit of stunts, turn into a String[]
@@ -47,7 +49,9 @@ public class CharacterSheetFateCore extends CharacterSheet {
 		
 		this.highConcept = "";
 		this.trouble = "";
-		this.aspects = new String[3];
+		this.aspect1 = "";
+		this.aspect2 = "";
+		this.aspect3 = "";
 		
 		this.extras = new ArrayList<String>();
 		this.stunts = new ArrayList<String>();
@@ -68,11 +72,12 @@ public class CharacterSheetFateCore extends CharacterSheet {
 
 	public boolean updateValues( Long campaignID, Long characterID, 
 			String name, String description, int refresh, 
-			String highConcept, String trouble, String[] aspects, 
-			ArrayList<String> extras, ArrayList<String> stunts, 
-			int stressPhysical, int stressMental,
+			String highConcept, String trouble, String aspect1, 
+			String aspect2, String aspect3, ArrayList<String> extras,
+			ArrayList<String> stunts, int stressPhysical, int stressMental,
 			String consequence2, String consequence4, String consequence6,
-			String[] skillsSuperb, String[] skillsGreat, String[] skillsGood, String[] skillsFair, String[] skillsAverage
+			String[] skillsSuperb, String[] skillsGreat, String[] skillsGood,
+			String[] skillsFair, String[] skillsAverage
 			)
 	{
 		this.campaignID = campaignID;
@@ -86,7 +91,9 @@ public class CharacterSheetFateCore extends CharacterSheet {
 		
 		this.highConcept = highConcept;
 		this.trouble = trouble;
-		this.aspects = aspects;
+		this.aspect1 = aspect1;
+		this.aspect2 = aspect2;
+		this.aspect3 = aspect3;
 		
 		this.extras = extras;
 		this.stunts = stunts;
@@ -244,8 +251,16 @@ public class CharacterSheetFateCore extends CharacterSheet {
 		return 0;
 	}
 
-	public String[] getAspects() {
-		return aspects;
+	public String getAspect1() {
+		return aspect1;
+	}
+	
+	public String getAspect2() {
+		return aspect2;
+	}
+	
+	public String getAspect3() {
+		return aspect3;
 	}
 
 	public int validateExtras( ArrayList<String> extras )
