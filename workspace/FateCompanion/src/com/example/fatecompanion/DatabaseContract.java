@@ -23,19 +23,36 @@ public final class DatabaseContract {
 		public static final String COLUMN_CHARACTER = "campaigncharacter";
 	}
 	
-	//TODO: setup for database
-	public static abstract class CharacterSheetEntry {
-		public static final String TABLE_NAME = "CharacterSheet";
-		/*public static final String COLUMN_
-		public static final String COLUMN_
-		public static final String COLUMN_
-		public static final String COLUMN_
-		public static final String COLUMN_
-		public static final String COLUMN_
-		public static final String COLUMN_
-		public static final String COLUMN_
-		public static final String COLUMN_
-		public static final String COLUMN_
-		public static final String COLUMN_  */
+	public static abstract class CharacterSheetFAEEntry {
+		public static final String TABLE_NAME = "CharacterSheetFateAccelerated";
+		public static final String COLUMN_NAME = "charactername";
+		public static final String COLUMN_DESCRIPTION = "characterdescription";
+		public static final String COLUMN_SYSTEM = "charactersystem";
+		public static final String COLUMN_HIGHCONCEPT = "characterhighconcept";
+		public static final String COLUMN_TROUBLE = "charactertrouble";
+		public static final String COLUMN_ASPECT1 = "characteraspect1";
+		public static final String COLUMN_ASPECT2 = "characteraspect2";
+		public static final String COLUMN_ASPECT3 = "characteraspect3";
+		public static final String COLUMN_STUNT1 = "characterstunt1";
+		public static final String COLUMN_STUNT2 = "characterstunt2";
+		public static final String COLUMN_STUNT3 = "characterstunt3";
+		public static final String COLUMN_STUNT4 = "characterstunt4";
+		public static final String COLUMN_STUNT5 = "characterstunt5";
+		public static final String COLUMN_CAREFUL = "characterapproachcareful";
+		public static final String COLUMN_CLEVER = "characterapproachclever";
+		public static final String COLUMN_FLASHY = "characterapproachflashy";
+		public static final String COLUMN_FORCEFUL = "characterapproachforceful";
+		public static final String COLUMN_QUICK = "characterapproachquick";
+		public static final String COLUMN_SNEAKY = "characterapproachsneaky";
+		public static final String COLUMN_STRESS1 = "characterstress1";
+		public static final String COLUMN_STRESS2 = "characterstress2";
+		public static final String COLUMN_STRESS3 = "characterstress3";
+		public static final String COLUMN_CONSEQUENCE1 = "characterconsequence1";
+		public static final String COLUMN_CONSEQUENCE2 = "characterconsequence2";
+		public static final String COLUMN_CONSEQUECNE3 = "characterconsequence3";
+		public static final String COLUMN_REFRESH = "characterrefresh";
+		public static final String COLUMN_FATEPOINTS = "characterfatepoints";
+		public static final String COLUMN_CHARACTER = "charactersheetcharacter";
+		public static final String COLUMN_CAMPAIGN = "charactersheetcampaign";
 	}
 }
