@@ -49,7 +49,7 @@ public final class DatabaseContract {
 		public static final String COLUMN_STRESS3 = "characterstress3";
 		public static final String COLUMN_CONSEQUENCE1 = "characterconsequence1";
 		public static final String COLUMN_CONSEQUENCE2 = "characterconsequence2";
-		public static final String COLUMN_CONSEQUECNE3 = "characterconsequence3";
+		public static final String COLUMN_CONSEQUENCE3 = "characterconsequence3";
 		public static final String COLUMN_REFRESH = "characterrefresh";
 		public static final String COLUMN_FATEPOINTS = "characterfatepoints";
 		public static final String COLUMN_CHARACTER = "charactersheetcharacter";
