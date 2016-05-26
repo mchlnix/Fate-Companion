@@ -23,6 +23,13 @@ public final class DatabaseContract {
 		public static final String COLUMN_CHARACTER = "campaigncharacter";
 	}
 	
+	public static abstract class CharacterSheetIDEntry {
+		public static final String TABLE_NAME = "CharacterSheetID";
+		public static final String COLUMN_CHARACTERSHEET_ID_ID = "charactersheetidid";
+		public static final String COLUMN_CHARACTER = "characterid";
+		public static final String COLUMN_CAMPAIGN = "campaignid";
+	}
+	
 	public static abstract class CharacterSheetFAEEntry {
 		public static final String TABLE_NAME = "CharacterSheetFateAccelerated";
 		public static final String COLUMN_NAME = "charactername";
@@ -52,7 +59,6 @@ public final class DatabaseContract {
 		public static final String COLUMN_CONSEQUENCE3 = "characterconsequence3";
 		public static final String COLUMN_REFRESH = "characterrefresh";
 		public static final String COLUMN_FATEPOINTS = "characterfatepoints";
-		public static final String COLUMN_CHARACTER = "charactersheetcharacter";
-		public static final String COLUMN_CAMPAIGN = "charactersheetcampaign";
+		public static final String COLUMN_CHARACTERSHEETID = "charactersheetid";
 	}
 }

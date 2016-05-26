@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.fatecompanion.DatabaseContract.CampaignEntry;
 import com.example.fatecompanion.DatabaseContract.CharacterEntry;
 import com.example.fatecompanion.DatabaseContract.CharacterSheetFAEEntry;
+import com.example.fatecompanion.DatabaseContract.CharacterSheetIDEntry;
 //imports CharacterEntry, CampaignEntry and CharacterSheetEntry
 
 public class DbHelper extends SQLiteOpenHelper {
@@ -26,7 +27,8 @@ public class DbHelper extends SQLiteOpenHelper {
 	//method is executed when DB is first created
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		//Create-Statement for Character DB
+		
+		//Create-Statement for Character Table
 		String createCharacterTable = 
 				"CREATE TABLE " + CharacterEntry.TABLE_NAME 
 				+ " (" 
@@ -36,7 +38,7 @@ public class DbHelper extends SQLiteOpenHelper {
 				+ " )";
 		db.execSQL(createCharacterTable);
 		
-		//Create-Statement for Campaign DB
+		//Create-Statement for Campaign Table
 		String createCampaignTable =  
 				"CREATE TABLE " + CampaignEntry.TABLE_NAME 
 				+ " (" 
@@ -50,7 +52,17 @@ public class DbHelper extends SQLiteOpenHelper {
 				+ ")";
 		db.execSQL(createCampaignTable);
 		
-		//Create-Statement for CharacterSheet Fate Accelerated DB
+		//Create-Statement for CharacterSheetID Table
+		String createCharacterSheetIDTable = 
+				"CREATE TABLE " + CharacterSheetIDEntry.TABLE_NAME
+				+ " ("
+				+ CharacterSheetIDEntry.COLUMN_CHARACTERSHEET_ID_ID	+ " INTEGER PRIMARY KEY,"
+				+ CharacterSheetIDEntry.COLUMN_CHARACTER			+ " INTEGER NOT NULL,"
+				+ CharacterSheetIDEntry.COLUMN_CAMPAIGN				+ " INTEGER NOT NULL"
+				+ ")";
+		db.execSQL(createCharacterSheetIDTable);
+		
+		//Create-Statement for CharacterSheet Fate Accelerated Table
 		String createCharacterSheetFAETable =
 				"CREATE TABLE " + CharacterSheetFAEEntry.TABLE_NAME
 				+ " ("
@@ -81,11 +93,9 @@ public class DbHelper extends SQLiteOpenHelper {
 				+ CharacterSheetFAEEntry.COLUMN_CONSEQUENCE3 + " TEXT,"
 				+ CharacterSheetFAEEntry.COLUMN_REFRESH		+ " INTEGER,"
 				+ CharacterSheetFAEEntry.COLUMN_FATEPOINTS	+ " INTEGER,"
-				+ CharacterSheetFAEEntry.COLUMN_CHARACTER	+ " INTEGER NOT NULL,"
-				+ CharacterSheetFAEEntry.COLUMN_CAMPAIGN	+ " INTEGER NOT NULL,"
-				+ " PRIMARY KEY (" + CharacterSheetFAEEntry.COLUMN_CHARACTER + ", " + CharacterSheetFAEEntry.COLUMN_CAMPAIGN + "),"
-				+ " FOREIGN KEY (" + CharacterSheetFAEEntry.COLUMN_CHARACTER + ") REFERENCES " + CharacterEntry.TABLE_NAME + "(" + CharacterEntry.COLUMN_CHARACTER_ID + "),"
-				+ " FOREIGN KEY (" + CharacterSheetFAEEntry.COLUMN_CAMPAIGN + ") REFERENCES " + CampaignEntry.TABLE_NAME + "(" + CampaignEntry.COLUMN_CAMPAIGN_ID + ")"
+				+ CharacterSheetFAEEntry.COLUMN_CHARACTERSHEETID	+ " INTEGER NOT NULL,"
+				+ " PRIMARY KEY (" + CharacterSheetFAEEntry.COLUMN_CHARACTERSHEETID + "),"
+				+ " FOREIGN KEY (" + CharacterSheetFAEEntry.COLUMN_CHARACTERSHEETID + ") REFERENCES " + CharacterSheetIDEntry.TABLE_NAME + "(" + CharacterSheetIDEntry.COLUMN_CHARACTERSHEET_ID_ID + ")"
 				+ ")";
 		db.execSQL(createCharacterSheetFAETable);
 	}

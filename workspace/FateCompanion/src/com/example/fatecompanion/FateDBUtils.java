@@ -56,5 +56,26 @@ public final class FateDBUtils {
 				
 		return campaignIDs;
 	}
+	
+	//loads every characterSheetIDID from the database and returns them in an ArrayList
+	public static ArrayList<Long> loadCharacterSheetIDIDs( SQLiteDatabase database )
+	{
+		ArrayList<Long> characterIDIDs = new ArrayList<Long>();
+		
+		//queries every characterSheetIDID into a cursor
+		String[] projection = { CharacterSheetIDEntry.COLUMN_CHARACTERSHEET_ID_ID };
+		
+		Cursor c = database.query( CharacterSheetIDEntry.TABLE_NAME, projection, null, null, null, null, null );
+		
+		//iterate over cursor and populate campaignIDs
+		while ( c.moveToNext() )
+		{
+			characterIDIDs.add( c.getLong( c.getColumnIndex( CharacterSheetIDEntry.COLUMN_CHARACTERSHEET_ID_ID ) ) );
+		}
+		
+		c.close();
+		
+		return characterIDIDs;
+	}
 
 }

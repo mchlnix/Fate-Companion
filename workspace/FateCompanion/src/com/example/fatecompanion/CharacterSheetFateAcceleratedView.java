@@ -50,6 +50,10 @@ public class CharacterSheetFateAcceleratedView extends Activity {
 		this.characterID = intent.getLongExtra("characterID", 0L);
 		this.campaignID = intent.getLongExtra("campaignID", 0L);
 		
-		this.setTitle("FAE CharacterSheetView");
+		this.setTitle( CharacterController.getInstance(getApplicationContext()).getCharacterByID( this.characterID ).getName()
+				+ " in " + CampaignController.getInstance(getApplicationContext()).getCampaignByID(this.campaignID).getName() );
+		
+		//1) find the correct CharacterSheetID
+		
 	}
 }
