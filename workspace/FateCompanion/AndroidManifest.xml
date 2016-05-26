@@ -41,6 +41,10 @@
             android:label="@string/title_activity_campaign_create_view"
             android:windowSoftInputMode="adjustResize" >
         </activity>
+        <activity
+            android:name=".CharacterSheetFateAcceleratedView"
+            android:label="@string/title_activity_character_sheet_fate_accelerated_view" >
+        </activity>
     </application>
 
 </manifest>

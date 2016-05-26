@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Space;
+import android.widget.Toast;
 
 public class CampaignListView extends Activity {
 
@@ -102,9 +103,24 @@ public class CampaignListView extends Activity {
 		((LinearLayout) this.findViewById( R.id.LinearLayout1 ) ).addView( addCamp );
 	}
 
+	//TODO: add cases for Fate Core and Atomic Robo
+	//changes View to CharacterSheet and also selects which CharacterSheet-Type is appropriate
 	private void goToCharacterSheet( Long characterID, Long campaignID )
 	{
-		Intent intent = new Intent( this, CharacterSheetView.class );
+		Intent intent;
+		
+		//get System of the selected Campaign
+		RPGSystem system = CampaignController.getInstance(getApplicationContext()).getCampaignByID(campaignID).getSystem();
+		
+		//select the next View
+		if ( system.name().equals( RPGSystem.FateAccelerated.name() ) )
+		{
+			intent = new Intent( this, CharacterSheetFateAcceleratedView.class );
+		} else
+		{
+			intent = new Intent ( this, CharacterSheetView.class );
+		}
+		
 		intent.putExtra( "characterID", characterID );
 		intent.putExtra( "campaignID", campaignID );
 		
