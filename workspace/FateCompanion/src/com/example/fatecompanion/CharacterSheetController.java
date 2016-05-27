@@ -1,35 +1,79 @@
 package com.example.fatecompanion;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 public class CharacterSheetController {
 	
-	HashMap<CharacterSheetID, CharacterSheet> characterSheetCache;
+	private static CharacterSheetController instance = null;
 	
-	public CharacterSheetController()
-	{
-		this.characterSheetCache = new HashMap<CharacterSheetID, CharacterSheet>();
-	}
+	private Context appContext;
 	
-	public boolean addCharacterSheet( Long campaignID, Long characterID, CharacterSheet characterSheet )
+	private DbHelper dbHelper;
+	
+	private SQLiteDatabase database;
+	
+	private ArrayList<CharacterSheetID> characterSheetIDs;
+	
+	
+	public CharacterSheetController( Context applicationContext )
 	{
-		this.characterSheetCache.put( new CharacterSheetID( campaignID, characterID ), characterSheet );
+		this.appContext = applicationContext;
+		this.dbHelper = new DbHelper( this.appContext );
+		this.database = this.dbHelper.getWritableDatabase();
 		
-		//TODO: Fix this Max!
-		//return CharacterController.getInstance().getCharacterByID( characterID ).addCharacterSheet( characterSheet, campaignID );
-		return false;
+		this.characterSheetIDs = new ArrayList<CharacterSheetID>();
+		
+		//populate the CharacterSheetID-List
+		ArrayList<Long> characterSheetIDIDs = FateDBUtils.loadCharacterSheetIDIDs( this.database );
+		for ( Long csIDID : characterSheetIDIDs )
+		{
+			CharacterSheetID newCharacterSheetID = new CharacterSheetID ( 1L, 1L );
+			
+			if ( newCharacterSheetID.loadFromDB( csIDID, this.database ) )
+			{
+				characterSheetIDs.add( newCharacterSheetID );
+			} else
+			{
+				Toast.makeText(appContext, "CharacterSheetID with ID " + Long.toString(csIDID) + " could not be loaded.", Toast.LENGTH_SHORT).show();
+			}
+		}
 	}
 	
-	public boolean addTemplateCharacterSheet( Long characterID, CharacterSheet sheet )
+	public static synchronized CharacterSheetController getInstance(Context applicationContext)
 	{
-		//TODO: Fix this Max!
-		//return CharacterController.getInstance().getCharacterByID( characterID )
-		//.addTemplateSheet( sheet, sheet.getSystem() );
-		return false;
+		if ( instance == null)
+		{
+			instance = new CharacterSheetController( applicationContext );
+		}
+		
+		return instance;
 	}
 	
-	public CharacterSheet getCharacterSheet( Long campaignID, Long characterID )
+	public CharacterSheetID getCharacterSheetIDByID( Long characterID, Long campaignID )
 	{
-		return this.characterSheetCache.get( new CharacterSheetID( campaignID, characterID ) );
+		CharacterSheetID temp = null;
+		
+		//search the CharacterSheetID-List
+		for ( CharacterSheetID characterSheetID : characterSheetIDs )
+		{
+			if( characterSheetID.getCharacterID().equals( characterID )
+					&& characterSheetID.getCampaignID().equals( campaignID ) )
+			{
+				temp = characterSheetID;
+				break;
+			}
+		}
+		
+		return temp;
+	}
+	
+	public CharacterSheetID getCharacterSheetIDByID( Long characterSheetIDID )
+	{
+		
+		
+		return null;
 	}
 }

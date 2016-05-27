@@ -56,6 +56,33 @@ public class CharacterSheetID {
 		return false;
 	}
 	
+	public boolean loadFromDB( Long characterSheetIDID, SQLiteDatabase database )
+	{
+		String[] projection = {
+				CharacterSheetIDEntry.COLUMN_CHARACTERSHEET_ID_ID,
+				CharacterSheetIDEntry.COLUMN_CHARACTER,
+				CharacterSheetIDEntry.COLUMN_CAMPAIGN};
+		String selection = CharacterSheetIDEntry.COLUMN_CHARACTERSHEET_ID_ID + " = " + characterSheetIDID.toString();
+		
+		Cursor c = database.query(CharacterSheetIDEntry.TABLE_NAME, projection, selection, null, null, null, null);
+		
+		c.moveToFirst();
+		this.characterSheetIDID	= c.getLong( c.getColumnIndex( CharacterSheetIDEntry.COLUMN_CHARACTERSHEET_ID_ID ) );
+		this.characterID		= c.getLong( c.getColumnIndex( CharacterSheetIDEntry.COLUMN_CHARACTER ) );
+		this.campaignID			= c.getLong( c.getColumnIndex( CharacterSheetIDEntry.COLUMN_CAMPAIGN ) );
+		
+		if ( this.characterSheetIDID.equals( c.getLong( c.getColumnIndex( CharacterSheetIDEntry.COLUMN_CHARACTERSHEET_ID_ID ) ) )
+			&& this.characterID.equals( c.getLong( c.getColumnIndex( CharacterSheetIDEntry.COLUMN_CHARACTER ) ) )
+			&& this.campaignID.equals( c.getLong( c.getColumnIndex( CharacterSheetIDEntry.COLUMN_CAMPAIGN ) ) ) )
+		{
+			c.close();
+			return true;
+		}
+		
+		c.close();
+		return false;
+	}
+	
 	public boolean saveToDB( SQLiteDatabase database )
 	{
 		ContentValues values = new ContentValues();

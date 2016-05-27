@@ -19,5 +19,6 @@
     </string-array>
 
     <string name="title_activity_character_sheet_fate_accelerated_view">CharacterSheetFateAcceleratedView</string>
+    <string name="title_activity_character_sheet_create_view">CharacterSheetCreateView</string>
 
 </resources>
