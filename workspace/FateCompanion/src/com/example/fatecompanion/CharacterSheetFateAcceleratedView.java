@@ -67,12 +67,24 @@ public class CharacterSheetFateAcceleratedView extends Activity {
 		}
 	}
 	
+	/*
+	 * We use this.finish() at the bottom to remove this instance of 
+	 * FateAcceleratedCharacterSheetView from the activity history.
+	 * Since it is empty we won't need it in case of a "back" from the 
+	 * following creation view.
+	 * If the creation was finished, then (by removing the creation view, 
+	 * by calling finish() there as well) we automatically jump back over 
+	 * both views to the campaign view. 
+	 * 
+	 */
+	
 	public void goToCharacterSheetCreate( Long characterID, Long campaignID )
 	{
-		Intent intent = new Intent(this, CharacterSheetCreateView.class);
+		Intent intent = new Intent(this, CharacterSheetFateAcceleratedCreateView.class);
 		intent.putExtra( "characterID", characterID);
 		intent.putExtra( "campaignID", campaignID);
 		
 		this.startActivity( intent );
+		this.finish();
 	}
 }

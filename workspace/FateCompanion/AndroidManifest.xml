@@ -46,7 +46,7 @@
             android:label="@string/title_activity_character_sheet_fate_accelerated_view" >
         </activity>
         <activity
-            android:name=".CharacterSheetCreateView"
+            android:name=".CharacterSheetFateAcceleratedCreateView"
             android:label="@string/title_activity_character_sheet_create_view" >
         </activity>
     </application>
