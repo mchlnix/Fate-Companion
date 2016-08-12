@@ -1,8 +1,6 @@
 package com.example.fatecompanion.view;
 
 import com.example.fatecompanion.R;
-import com.example.fatecompanion.R.id;
-import com.example.fatecompanion.R.layout;
 import com.example.fatecompanion.controller.CampaignController;
 import com.example.fatecompanion.controller.CharacterController;
 import com.example.fatecompanion.controller.CharacterSheetController;
@@ -15,7 +13,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 public class CharacterSheetFateAcceleratedView extends Activity {
 

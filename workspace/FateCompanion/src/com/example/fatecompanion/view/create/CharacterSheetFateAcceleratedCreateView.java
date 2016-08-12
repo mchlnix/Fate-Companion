@@ -1,9 +1,6 @@
 package com.example.fatecompanion.view.create;
 
 import com.example.fatecompanion.R;
-import com.example.fatecompanion.R.id;
-import com.example.fatecompanion.R.layout;
-import com.example.fatecompanion.R.menu;
 
 import android.app.Activity;
 import android.content.Intent;

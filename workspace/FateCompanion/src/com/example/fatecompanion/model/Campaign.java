@@ -3,14 +3,12 @@ package com.example.fatecompanion.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.example.fatecompanion.database.DatabaseContract.CampaignEntry;
+import com.example.fatecompanion.util.FateDBUtils;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
-import com.example.fatecompanion.database.DatabaseContract.CampaignEntry;
-import com.example.fatecompanion.database.DatabaseContract.CharacterEntry;
-import com.example.fatecompanion.util.FateDBUtils;
 
 public class Campaign {
 

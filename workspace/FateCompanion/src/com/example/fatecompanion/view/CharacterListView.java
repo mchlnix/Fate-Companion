@@ -3,8 +3,6 @@ package com.example.fatecompanion.view;
 import java.util.ArrayList;
 
 import com.example.fatecompanion.R;
-import com.example.fatecompanion.R.id;
-import com.example.fatecompanion.R.layout;
 import com.example.fatecompanion.controller.CharacterController;
 import com.example.fatecompanion.model.Character;
 import com.example.fatecompanion.view.create.CharacterCreateView;

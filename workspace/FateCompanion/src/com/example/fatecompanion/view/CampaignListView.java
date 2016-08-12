@@ -3,8 +3,6 @@ package com.example.fatecompanion.view;
 import java.util.ArrayList;
 
 import com.example.fatecompanion.R;
-import com.example.fatecompanion.R.id;
-import com.example.fatecompanion.R.layout;
 import com.example.fatecompanion.controller.CampaignController;
 import com.example.fatecompanion.controller.CharacterController;
 import com.example.fatecompanion.model.Campaign;
@@ -21,7 +19,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Space;
-import android.widget.Toast;
 
 public class CampaignListView extends Activity {
 

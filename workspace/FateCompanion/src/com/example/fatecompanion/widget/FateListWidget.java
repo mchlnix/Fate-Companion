@@ -3,7 +3,6 @@ package com.example.fatecompanion.widget;
 import java.util.Random;
 
 import com.example.fatecompanion.R;
-import com.example.fatecompanion.R.drawable;
 
 import android.content.Context;
 import android.graphics.Color;
