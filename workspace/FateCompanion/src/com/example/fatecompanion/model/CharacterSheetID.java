@@ -1,8 +1,9 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.model;
 
 import java.util.ArrayList;
 
-import com.example.fatecompanion.DatabaseContract.CharacterSheetIDEntry;
+import com.example.fatecompanion.database.DatabaseContract.CharacterSheetIDEntry;
+import com.example.fatecompanion.util.FateDBUtils;
 
 import android.content.ContentValues;
 import android.database.Cursor;

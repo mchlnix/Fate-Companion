@@ -1,4 +1,13 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.view;
+
+import com.example.fatecompanion.R;
+import com.example.fatecompanion.R.id;
+import com.example.fatecompanion.R.layout;
+import com.example.fatecompanion.controller.CampaignController;
+import com.example.fatecompanion.controller.CharacterController;
+import com.example.fatecompanion.controller.CharacterSheetController;
+import com.example.fatecompanion.model.CharacterSheetID;
+import com.example.fatecompanion.view.create.CharacterSheetFateAcceleratedCreateView;
 
 import android.app.Activity;
 import android.content.Intent;

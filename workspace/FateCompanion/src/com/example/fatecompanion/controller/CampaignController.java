@@ -1,7 +1,12 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import com.example.fatecompanion.database.DbHelper;
+import com.example.fatecompanion.model.Campaign;
+import com.example.fatecompanion.model.RPGSystem;
+import com.example.fatecompanion.util.FateDBUtils;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

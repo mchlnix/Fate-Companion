@@ -1,10 +1,13 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-import com.example.fatecompanion.DatabaseContract.CampaignEntry;
+import com.example.fatecompanion.database.DbHelper;
+import com.example.fatecompanion.database.DatabaseContract.CampaignEntry;
+import com.example.fatecompanion.model.Character;
+import com.example.fatecompanion.util.FateDBUtils;
 
 import android.content.Context;
 import android.database.Cursor;

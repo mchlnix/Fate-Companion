@@ -1,6 +1,11 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.controller;
 
 import java.util.ArrayList;
+
+import com.example.fatecompanion.database.DbHelper;
+import com.example.fatecompanion.model.CharacterSheetID;
+import com.example.fatecompanion.util.FateDBUtils;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;

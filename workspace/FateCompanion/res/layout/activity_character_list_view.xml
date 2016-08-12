@@ -15,7 +15,7 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         android:scrollbarStyle="insideOverlay"
         android:scrollbars="vertical"
-        tools:context="com.example.fatecompanion.CharacterListView" >
+        tools:context="com.example.fatecompanion.view.CharacterListView" >
     </LinearLayout>
 
 </ScrollView>

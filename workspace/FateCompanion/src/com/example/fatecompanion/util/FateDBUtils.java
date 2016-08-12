@@ -1,8 +1,8 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.util;
 
 import java.util.ArrayList;
 
-import com.example.fatecompanion.DatabaseContract.*;
+import com.example.fatecompanion.database.DatabaseContract.*;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

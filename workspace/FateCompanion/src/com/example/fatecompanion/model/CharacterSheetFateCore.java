@@ -1,6 +1,7 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.model;
 
 import java.util.ArrayList;
+
 
 public class CharacterSheetFateCore extends CharacterSheet {
 	

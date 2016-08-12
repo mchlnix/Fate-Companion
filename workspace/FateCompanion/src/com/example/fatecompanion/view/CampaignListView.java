@@ -1,6 +1,16 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.view;
 
 import java.util.ArrayList;
+
+import com.example.fatecompanion.R;
+import com.example.fatecompanion.R.id;
+import com.example.fatecompanion.R.layout;
+import com.example.fatecompanion.controller.CampaignController;
+import com.example.fatecompanion.controller.CharacterController;
+import com.example.fatecompanion.model.Campaign;
+import com.example.fatecompanion.model.RPGSystem;
+import com.example.fatecompanion.view.create.CampaignCreateView;
+import com.example.fatecompanion.widget.CampaignListWidget;
 
 import android.app.Activity;
 import android.content.Intent;

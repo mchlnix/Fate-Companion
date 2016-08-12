@@ -1,4 +1,5 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.model;
+
 
 public class CharacterSheetFateAccelerated extends CharacterSheet {
 

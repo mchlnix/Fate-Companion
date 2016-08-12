@@ -1,4 +1,4 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.model;
 
 public enum RPGSystem {
 	FateAccelerated,

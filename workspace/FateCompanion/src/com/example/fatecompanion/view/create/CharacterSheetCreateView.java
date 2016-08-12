@@ -1,4 +1,9 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.view.create;
+
+import com.example.fatecompanion.R;
+import com.example.fatecompanion.R.id;
+import com.example.fatecompanion.R.layout;
+import com.example.fatecompanion.R.menu;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +20,7 @@ public class CharacterSheetCreateView extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_character_sheet_create_view);
+		setContentView(R.layout.activity_character_sheet_fate_accelerated_create_view);
 	}
 
 	@Override

@@ -1,4 +1,8 @@
-package com.example.fatecompanion;
+package com.example.fatecompanion.view;
+
+import com.example.fatecompanion.R;
+import com.example.fatecompanion.R.id;
+import com.example.fatecompanion.R.layout;
 
 import android.app.Activity;
 import android.os.Bundle;

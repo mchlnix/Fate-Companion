@@ -1,6 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.fatecompanion.CharacterSheetFateAcceleratedView" >
+    tools:context="com.example.fatecompanion.view.CharacterSheetFateAcceleratedView" >
 
     <item
         android:id="@+id/action_settings"
