@@ -8,6 +8,7 @@ import com.example.fatecompanion.controller.CharacterController;
 import com.example.fatecompanion.model.Campaign;
 import com.example.fatecompanion.model.RPGSystem;
 import com.example.fatecompanion.view.create.CampaignCreateView;
+import com.example.fatecompanion.view.create.CharacterSheetCreateView;
 import com.example.fatecompanion.widget.CampaignListWidget;
 
 import android.app.Activity;
@@ -125,7 +126,7 @@ public class CampaignListView extends Activity {
 			intent = new Intent( this, CharacterSheetFateAcceleratedView.class );
 		} else
 		{
-			intent = new Intent ( this, CharacterSheetView.class );
+			intent = new Intent ( this, CharacterSheetCreateView.class );
 		}
 		
 		intent.putExtra( "characterID", characterID );

@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.fatecompanion.view.CharacterListView"
+            android:name=".view.CharacterListView"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,29 +24,33 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.fatecompanion.view.CampaignListView"
+            android:name=".view.CampaignListView"
             android:label="@string/title_activity_campaign_list_view" >
         </activity>
         <activity
-            android:name="com.example.fatecompanion.view.create.CharacterCreateView"
+            android:name=".view.create.CharacterCreateView"
             android:label="@string/title_activity_character_create_view"
             android:windowSoftInputMode="adjustResize" >
         </activity>
         <activity
-            android:name="com.example.fatecompanion.view.CharacterSheetView"
+            android:name=".view.CharacterSheetView"
             android:label="@string/title_activity_character_sheet_view" >
         </activity>
         <activity
-            android:name="com.example.fatecompanion.view.create.CampaignCreateView"
+            android:name=".view.create.CampaignCreateView"
             android:label="@string/title_activity_campaign_create_view"
             android:windowSoftInputMode="adjustResize" >
         </activity>
         <activity
-            android:name="com.example.fatecompanion.view.CharacterSheetFateAcceleratedView"
+            android:name=".view.CharacterSheetFateAcceleratedView"
             android:label="@string/title_activity_character_sheet_fate_accelerated_view" >
         </activity>
         <activity
-            android:name="com.example.fatecompanion.view.create.CharacterSheetFateAcceleratedCreateView"
+            android:name=".view.create.CharacterSheetFateAcceleratedCreateView"
+            android:label="@string/title_activity_character_sheet_create_view" >
+        </activity>
+        <activity
+            android:name="com.example.fatecompanion.view.create.CharacterSheetCreateView"
             android:label="@string/title_activity_character_sheet_create_view" >
         </activity>
     </application>
