@@ -1,6 +1,8 @@
 package com.example.fatecompanion.view.create;
 
 import com.example.fatecompanion.R;
+import com.example.fatecompanion.controller.CampaignController;
+import com.example.fatecompanion.controller.CharacterController;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -51,6 +53,7 @@ public class CharacterSheetFateAcceleratedCreateView extends Activity {
 		this.characterID = intent.getLongExtra("characterID", 0L);
 		this.campaignID = intent.getLongExtra("campaignID", 0L);
 		
-		this.setTitle( "CharacterSheet Creation" );
+		this.setTitle( "Fate Accelerated für " + CharacterController.getInstance(getApplicationContext()).getCharacterByID( this.characterID ).getName()
+				+ " in " + CampaignController.getInstance(getApplicationContext()).getCampaignByID(this.campaignID).getName() );
 	}
 }
