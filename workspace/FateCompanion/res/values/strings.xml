@@ -44,5 +44,6 @@
     <string name="character_hint_name">Name</string>
     <string name="character_hint_description">Description</string>
     <string name="character_button_save_character">Save Character</string>
+    <string name="character_sheet_fate_accelerated_button_save_character_sheet">Button</string>
 
 </resources>
