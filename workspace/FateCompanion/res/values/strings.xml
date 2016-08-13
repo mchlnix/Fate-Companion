@@ -20,5 +20,26 @@
 
     <string name="title_activity_character_sheet_fate_accelerated_view">CharacterSheetFateAcceleratedView</string>
     <string name="title_activity_character_sheet_create_view">CharacterSheetCreateView</string>
+    <string name="character_sheet_fate_accelerated_label_id">ID</string>
+    <string name="character_sheet_fate_accelerated_hint_name">Name</string>
+    <string name="character_sheet_fate_accelerated_hint_description">Description</string>
+    <string name="character_sheet_fate_accelerated_label_aspects">Aspects</string>
+    <string name="character_sheet_fate_accelerated_hint_high_concept">High Concept</string>
+    <string name="character_sheet_fate_accelerated_hint_trouble">Trouble</string>
+    <string name="character_sheet_fate_accelerated_hint_another_aspect">Another Aspect</string>
+    <string name="character_sheet_fate_accelerated_hint_optional_aspect_1">Optional Aspect 1</string>
+    <string name="character_sheet_fate_accelerated_hint_optional_aspect_2">Optional Aspect 2</string>
+    <string name="character_sheet_fate_accelerated_label_approaches">Approaches</string>
+    <string name="character_sheet_fate_accelerated_label_careful">Careful</string>
+    <string name="character_sheet_fate_accelerated_label_clever">Clever</string>
+    <string name="character_sheet_fate_accelerated_label_flashy">Flashy</string>
+    <string name="character_sheet_fate_accelerated_label_forceful">Forceful</string>
+    <string name="character_sheet_fate_accelerated_label_quick">Quick</string>
+    <string name="character_sheet_fate_accelerated_label_stunts">Stunts</string>
+    <string name="character_sheet_fate_accelerated_label_stress">Stress</string>
+    <string name="character_sheet_fate_accelerated_label_consequences">Consequences</string>
+    <string name="character_sheet_fate_accelerated_hint_mild">Mild</string>
+    <string name="character_sheet_fate_accelerated_hint_moderate">Moderate</string>
+    <string name="character_sheet_fate_accelerated_hint_severe">Severe</string>
 
 </resources>
