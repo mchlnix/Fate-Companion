@@ -41,5 +41,8 @@
     <string name="character_sheet_fate_accelerated_hint_mild">Mild</string>
     <string name="character_sheet_fate_accelerated_hint_moderate">Moderate</string>
     <string name="character_sheet_fate_accelerated_hint_severe">Severe</string>
+    <string name="character_hint_name">Name</string>
+    <string name="character_hint_description">Description</string>
+    <string name="character_button_save_character">Save Character</string>
 
 </resources>

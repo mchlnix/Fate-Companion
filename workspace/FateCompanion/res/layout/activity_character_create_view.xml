@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Name"
+            android:hint="@string/character_hint_name"
             android:inputType="textPersonName"
             android:lines="1" >
 
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Description"
+            android:hint="@string/character_hint_description"
             android:inputType="textMultiLine" />
 
     </LinearLayout>
@@ -50,6 +50,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="saveCharacter"
-        android:text="Save Character" />
+        android:text="@string/character_button_save_character" />
 
 </LinearLayout>
