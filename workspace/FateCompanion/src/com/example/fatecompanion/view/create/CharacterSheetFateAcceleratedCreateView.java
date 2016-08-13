@@ -46,7 +46,7 @@ public class CharacterSheetFateAcceleratedCreateView extends Activity {
 	{
 		super.onStart();
 		
-		( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) ).removeAllViews();
+		//( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) ).removeAllViews();
 		
 		Intent intent = this.getIntent();
 		
