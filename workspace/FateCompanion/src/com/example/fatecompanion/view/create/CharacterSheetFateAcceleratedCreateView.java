@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 
 public class CharacterSheetFateAcceleratedCreateView extends Activity {
 	
@@ -45,8 +44,6 @@ public class CharacterSheetFateAcceleratedCreateView extends Activity {
 	protected void onStart()
 	{
 		super.onStart();
-		
-		//( (LinearLayout) this.findViewById( R.id.LinearLayout1 ) ).removeAllViews();
 		
 		Intent intent = this.getIntent();
 		
