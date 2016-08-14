@@ -16,14 +16,14 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/label_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
             android:text="@string/character_sheet_fate_accelerated_label_id" />
 
         <EditText
-            android:id="@+id/editText1"
+            android:id="@+id/editText_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -31,7 +31,7 @@
             android:hint="@string/character_sheet_fate_accelerated_hint_name" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/editText_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -42,14 +42,14 @@
         </EditText>
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/label_aspects"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
             android:text="@string/character_sheet_fate_accelerated_label_aspects" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/editText_high_concept"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -57,7 +57,7 @@
             android:hint="@string/character_sheet_fate_accelerated_hint_high_concept" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/editText_trouble"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -65,7 +65,7 @@
             android:hint="@string/character_sheet_fate_accelerated_hint_trouble" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/editText_another_aspect"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -73,7 +73,7 @@
             android:hint="@string/character_sheet_fate_accelerated_hint_another_aspect" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/editText_optional_aspect1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -81,7 +81,7 @@
             android:hint="@string/character_sheet_fate_accelerated_hint_optional_aspect_1" />
 
         <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/editText_optional_aspect2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -89,7 +89,7 @@
             android:hint="@string/character_sheet_fate_accelerated_hint_optional_aspect_2" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/label_approaches"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -107,7 +107,7 @@
                 android:layout_weight="80" >
 
                 <TextView
-                    android:id="@+id/TextView01"
+                    android:id="@+id/label_careful"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -121,7 +121,7 @@
                 android:layout_weight="20" >
 
                 <EditText
-                    android:id="@+id/EditText01"
+                    android:id="@+id/editText_careful"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -143,7 +143,7 @@
                 android:layout_weight="80" >
 
                 <TextView
-                    android:id="@+id/TextView02"
+                    android:id="@+id/label_clever"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -157,7 +157,7 @@
                 android:layout_weight="20" >
 
                 <EditText
-                    android:id="@+id/EditText02"
+                    android:id="@+id/editText_clever"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -179,7 +179,7 @@
                 android:layout_weight="80" >
 
                 <TextView
-                    android:id="@+id/TextView03"
+                    android:id="@+id/label_flashy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -193,7 +193,7 @@
                 android:layout_weight="20" >
 
                 <EditText
-                    android:id="@+id/EditText04"
+                    android:id="@+id/editText_flashy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10" 
@@ -214,7 +214,7 @@
                 android:layout_weight="80" >
 
                 <TextView
-                    android:id="@+id/TextView04"
+                    android:id="@+id/label_forceful"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -228,7 +228,7 @@
                 android:layout_weight="20" >
 
                 <EditText
-                    android:id="@+id/EditText05"
+                    android:id="@+id/editText_forceful"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10" 
@@ -249,7 +249,7 @@
                 android:layout_weight="80" >
 
                 <TextView
-                    android:id="@+id/TextView05"
+                    android:id="@+id/label_quick"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -263,7 +263,7 @@
                 android:layout_weight="20" >
 
                 <EditText
-                    android:id="@+id/EditText03"
+                    android:id="@+id/editText_quick"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10" 
@@ -284,7 +284,7 @@
                 android:layout_weight="80" >
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/label_sneaky"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -299,7 +299,7 @@
                 android:layout_weight="20" >
 
                 <EditText
-                    android:id="@+id/editText8"
+                    android:id="@+id/editText_sneaky"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10" 
@@ -311,14 +311,14 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/label_stunts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
             android:text="@string/character_sheet_fate_accelerated_label_stunts" />
 
         <EditText
-            android:id="@+id/editText9"
+            android:id="@+id/editText_stunts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -327,7 +327,7 @@
             android:minLines="3" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/label_stress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -344,7 +344,7 @@
                 android:layout_weight="0.33" >
 
                 <CheckBox
-                    android:id="@+id/checkBox1"
+                    android:id="@+id/checkBox_stress1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -358,7 +358,7 @@
                 android:layout_weight="0.34" >
 
                 <CheckBox
-                    android:id="@+id/checkBox2"
+                    android:id="@+id/checkBox_stress2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true" />
@@ -371,7 +371,7 @@
                 android:layout_weight="0.33" >
 
                 <CheckBox
-                    android:id="@+id/checkBox3"
+                    android:id="@+id/checkBox_stress3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -382,14 +382,14 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/label_consequences"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
             android:text="@string/character_sheet_fate_accelerated_label_consequences" />
 
         <EditText
-            android:id="@+id/editText10"
+            android:id="@+id/editText_consequence_mild"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -397,7 +397,7 @@
             android:hint="@string/character_sheet_fate_accelerated_hint_mild" />
 
         <EditText
-            android:id="@+id/editText11"
+            android:id="@+id/editText_consequence_moderate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -405,7 +405,7 @@
             android:hint="@string/character_sheet_fate_accelerated_hint_moderate" />
 
         <EditText
-            android:id="@+id/editText12"
+            android:id="@+id/editText_consequence_severe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
@@ -413,7 +413,7 @@
             android:hint="@string/character_sheet_fate_accelerated_hint_severe" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/button_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7.79"
