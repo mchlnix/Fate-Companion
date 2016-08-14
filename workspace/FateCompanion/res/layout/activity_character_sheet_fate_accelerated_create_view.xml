@@ -288,7 +288,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="@string/character_sheet_fate_accelerated_label_careful"
+                    android:text="@string/character_sheet_fate_accelerated_label_sneaky"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
             </RelativeLayout>
