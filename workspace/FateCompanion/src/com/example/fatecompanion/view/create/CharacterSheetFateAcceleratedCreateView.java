@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class CharacterSheetFateAcceleratedCreateView extends Activity {
 	
@@ -50,6 +51,11 @@ public class CharacterSheetFateAcceleratedCreateView extends Activity {
 		this.characterID = intent.getLongExtra("characterID", 0L);
 		this.campaignID = intent.getLongExtra("campaignID", 0L);
 		
+		((EditText) this.findViewById( R.id.editText1 ) ).setText(
+				 CharacterController.getInstance(getApplicationContext()).getCharacterByID( this.characterID ).getName());
+		((EditText) this.findViewById( R.id.editText2 ) ).setText(
+				 CharacterController.getInstance(getApplicationContext()).getCharacterByID( this.characterID ).getDescription());
+
 		this.setTitle( "Fate Accelerated für " + CharacterController.getInstance(getApplicationContext()).getCharacterByID( this.characterID ).getName()
 				+ " in " + CampaignController.getInstance(getApplicationContext()).getCampaignByID(this.campaignID).getName() );
 	}
